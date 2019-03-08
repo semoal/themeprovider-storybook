@@ -5,11 +5,13 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "postinstall": "bash ./fix-types.sh",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'src/**/*.tsx'",
-    "start": "start-storybook -p 6006",
+    "start": "start-storybook -p 6006 -c .storybook",
     "build": "rimraf dist/ && tsc"
   },
   "dependencies": {
+    "core-js": "^2.6.5",
     "immutable": "^4.0.0-rc.12",
     "recompose": "^0.30.0"
   },
@@ -20,11 +22,15 @@
     "styled-components": "^4.x"
   },
   "devDependencies": {
+    "@types/node": "^11.10.5",
+    "@types/recompose": "^0.30.5",
     "@storybook/addons": "^5.0.0",
     "@storybook/react": "^5.0.0",
     "@types/react": "^16.8.6",
     "@types/react-dom": "^16.8.2",
+    "@types/storybook__react": "^4.0.1",
     "@types/styled-components": "^4.1.12",
+    "awesome-typescript-loader": "^5.2.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "rimraf": "^2.6.3",
