@@ -8,3 +8,4 @@ demo
 .storybook
 jest.config.js
 tslint.json
+fix-types.sh

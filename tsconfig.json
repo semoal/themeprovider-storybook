@@ -1,24 +1,18 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "target": "es5",
     "module": "commonjs",
-    "target": "es6",
-    "lib": ["es6", "dom"],
-    "jsx": "react",
-    "moduleResolution": "node",
-    "rootDir": ".",
-    "baseUrl": "src",
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "declaration": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true
+    "lib": ["es5", "es6", "dom"],
+    "jsx": "react",
+    "types": ["node"],
+    "sourceRoot": "src",
+    "declarationDir": "dist",
+    "outDir": "dist"
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "example"]
 }
