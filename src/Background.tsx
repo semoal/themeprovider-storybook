@@ -57,7 +57,7 @@ export const BackgroundHelper = compose<BaseComponentProps, IThemesProviderProps
       const { setTheme } = this.props;
       const channel = addons.getChannel();
       channel.removeListener("selectTheme", setTheme);
-    }
+    },
   }),
-  branch<BaseComponentProps>(props => !props.theme, renderNothing)
+  branch<BaseComponentProps>((props) => !props.theme, renderNothing),
 )(BaseComponent);
