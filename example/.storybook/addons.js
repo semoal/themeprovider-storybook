@@ -1,0 +1,3 @@
+import "../../dist/register";
+
+
