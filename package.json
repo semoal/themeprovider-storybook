@@ -8,7 +8,7 @@
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'src/**/*.tsx'",
     "start": "start-storybook -p 6006 -c example/.storybook",
     "build": "rimraf dist/ && tsc",
-    "wolk": "cp package.json LICENSE README.md dist && cd dist/ && npm run publish"
+    "wolk": "cp package.json LICENSE README.md dist && cd dist/ && npm publish"
   },
   "dependencies": {
     "immutable": "^4.0.0-rc.12",
