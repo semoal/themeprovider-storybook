@@ -9,18 +9,30 @@ function loadStories() {
 const themes = [
   {
     name: 'Light',
-    backgroundColor: '#dad4da',
+    backgroundColor: '#fff',
     palette: {
-      blueOcean: '#2288a8',
-      greenOl: '#6d8836'
+      TextField: {
+        backgroundColor: '#f3f3f3',
+        fontColor: '#212e45',
+        borderColor: '#e2e6f3',
+        placeholderColor: '#999999',
+        opacityDisabled: 0.25,
+        borderError: '#e25a66',
+      },
     }
   },
   {
     name: 'Dark',
-    backgroundColor: '#736056',
+    backgroundColor: '#121833',
     palette: {
-      blueOcean: '#6d8836',
-      greenOl: '#2288a8'
+      TextField: {
+        backgroundColor: '#1a213f',
+        fontColor: '#808ab1',
+        borderColor: '#808ab1',
+        placeholderColor: '#808ab1',
+        opacityDisabled: 0.45,
+        borderError: '#e25a66'
+      },
     }
   },
 ]

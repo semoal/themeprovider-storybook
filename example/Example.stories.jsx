@@ -1,24 +1,35 @@
 import { storiesOf } from "@storybook/react";
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-const Button = styled.button`
-  background: #fff;
-  color: ${({ theme }) => theme.palette.blueOcean};
-  font-size: 1em;
+const InputType = styled.input`
+  border-radius: 10px;
+  border-width: 0px;
+  box-sizing: border-box;
+  max-width: 22.5em;
+  height: 3em;
+  width: 100%;
+  min-width: 4em;
   outline: 0;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: ${({ theme }) => `2px solid ${theme.palette.greenOl}` };
-  border-radius: 3px;
+  font-size: 16px;
+  margin: 0;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: ${({ theme }) => theme.palette.TextField.fontColor};
+  background-color: ${({ theme }) => theme.palette.TextField.backgroundColor};
+  box-shadow: 0 0 0 1px ${({ theme }) => theme.palette.TextField.backgroundColor};
+  &::placeholder {
+    color: ${({ theme }) => theme.palette.TextField.placeholderColor};
+  }
+  &:focus {
+    box-shadow: 0 0 0 1px ${({ theme }) => theme.palette.TextField.borderColor};
+  }
 `;
 
-storiesOf("Button", module)
-  .add("with text", () => <Button>Hello Button</Button>)
-  .add("with emoji", () => (
-    <Button>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </Button>
-  ));
+storiesOf("InputField", module)
+  .add("with themes", () => <InputType />)
+  .add("with placeholder", () => <InputType placeholder="Placeholder..." />);
+
