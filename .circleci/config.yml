@@ -31,11 +31,11 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
-      - run:
           name: Build package
           command: npm run build
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/dist/.npmrc
       - run:
           name: Prepare package
           command: npm run wolk
