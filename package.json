@@ -2,19 +2,15 @@
   "name": "themeprovider-storybook",
   "version": "1.0.1",
   "description": "Use your styled-components themes on your favourite storybook",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'src/**/*.tsx'",
     "start": "start-storybook -p 6006 -c example/.storybook",
-    "copypackage": "cp -rf package.json README.md LICENSE dist",
-    "build": "rimraf dist/ && tsc && npm run copypackage"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "build": "rimraf dist/ && tsc",
+    "wolk": "cp package.json LICENSE README.md dist && cd dist/ && npm run publish"
   },
   "dependencies": {
-    "core-js": "^2.6.5",
     "immutable": "^4.0.0-rc.12",
     "recompose": "^0.30.0"
   },
