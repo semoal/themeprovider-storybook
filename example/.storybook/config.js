@@ -1,4 +1,4 @@
-import { addDecorator, configure } from "@storybook/react";
+import { addDecorator, configure, addParameters } from "@storybook/react";
 import { withThemesProvider } from "../../src"
 
 function loadStories() {
@@ -38,5 +38,11 @@ const themes = [
 ]
 
 addDecorator(withThemesProvider(themes));
+
+addParameters({
+  options: {
+    name: 'Themeprovider-example'
+  }
+})
 
 configure(loadStories, module);
