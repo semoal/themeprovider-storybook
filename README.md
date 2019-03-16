@@ -1,5 +1,7 @@
 # Storybook SC ThemeProvider
 
+[![npm version](https://badge.fury.io/js/themeprovider-storybook.svg)](https://badge.fury.io/js/themeprovider-storybook)
+
 The ThemeProvider storybook addon let's you show your Styled-Components theme on your favourite [Storybook](https://storybook.js.org) UI at runtime.
 
 ![Screenshot](https://j.gifs.com/BNLlLo.gif)
