@@ -1,6 +1,6 @@
 {
   "name": "themeprovider-storybook",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Use your styled-components themes on your favourite storybook",
   "main": "index.js",
   "types": "index.d.ts",
@@ -8,7 +8,7 @@
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'src/**/*.tsx'",
     "start": "start-storybook -p 6006 -c example/.storybook",
     "build": "rimraf dist/ && tsc",
-    "wolk": "cp package.json LICENSE README.md dist && cd dist/"
+    "wolk": "cp package.json LICENSE README.md dist"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

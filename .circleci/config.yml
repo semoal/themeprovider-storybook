@@ -37,8 +37,11 @@ jobs:
           name: Build package
           command: npm run build
       - run:
-          name: Prepare & Publish package
-          command: npm run wolk && npm publish
+          name: Prepare package
+          command: npm run wolk
+      - run:
+          name: Publish package
+          command: cd dist/ && npm publish
 workflows:
   version: 2
   test-deploy:
