@@ -9,6 +9,9 @@
     "start": "start-storybook -p 6006 -c example/.storybook",
     "build": "rimraf dist/ && tsc"
   },
+  "publishConfig": {
+    "registry": "https://npm.finametrix.com"
+  },
   "dependencies": {
     "core-js": "^2.6.5",
     "immutable": "^4.0.0-rc.12",

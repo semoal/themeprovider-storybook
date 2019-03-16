@@ -34,6 +34,9 @@ jobs:
           name: Authenticate with registry
           command: echo "//npm.finametrix.com/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
       - run:
+          name: Build package
+          command: npm build
+      - run:
           name: Publish package
           command: npm publish
 workflows:
