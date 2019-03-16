@@ -38,7 +38,7 @@ jobs:
           command: npm run build
       - run:
           name: Publish package
-          command: npm publish
+          command: npm run dist
 workflows:
   version: 2
   test-deploy:

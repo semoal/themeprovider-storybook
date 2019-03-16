@@ -7,7 +7,9 @@
   "scripts": {
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'src/**/*.tsx'",
     "start": "start-storybook -p 6006 -c example/.storybook",
-    "build": "rimraf dist/ && tsc"
+    "copypackage": "cp -rf package.json README.md LICENSE dist",
+    "build": "rimraf dist/ && tsc && npm run copypackage",
+    "dist": "cd dist && npm publish"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
