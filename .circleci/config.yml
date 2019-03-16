@@ -35,7 +35,7 @@ jobs:
           command: echo "//npm.finametrix.com/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
       - run:
           name: Build package
-          command: npm build
+          command: npm run build
       - run:
           name: Publish package
           command: npm publish

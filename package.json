@@ -1,5 +1,5 @@
 {
-  "name": "themeprovider-storybook",
+  "name": "@finametrix/themeprovider-storybook",
   "version": "1.0.0",
   "description": "Use your styled-components themes on your favourite storybook",
   "main": "dist/index.js",
