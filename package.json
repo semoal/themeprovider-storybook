@@ -10,6 +10,9 @@
     "build": "rimraf dist/ && tsc",
     "wolk": "cp package.json LICENSE README.md dist && cd dist/ && npm publish"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "dependencies": {
     "immutable": "^4.0.0-rc.12",
     "recompose": "^0.30.0"
