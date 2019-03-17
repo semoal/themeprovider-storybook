@@ -17,6 +17,13 @@ jobs:
           - v1-dependencies-
 
       - run: npm install
+
+      - run:
+          name: Run Jest and Collect Coverage Reports
+          command: npm run test -- --updateSnapshot
+      - store_artifacts:
+          path: coverage
+
       - save_cache:
           paths:
             - node_modules
@@ -44,7 +51,7 @@ jobs:
           command: cd dist/ && npm publish
 workflows:
   version: 2
-  test-deploy:
+  pre-deploy:
     jobs:
       - test:
           filters:
@@ -56,3 +63,6 @@ workflows:
           filters:
             branches:
               only: master
+  prepare-pr:
+    jobs:
+      - test
