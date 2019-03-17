@@ -17,6 +17,17 @@ jobs:
           - v1-dependencies-
 
       - run: npm install
+
+      - run:
+          name: Run linting
+          command: npm run lint
+
+      - run:
+          name: Run Jest and Collect Coverage Reports
+          command: npm run test -- --updateSnapshot
+      - store_artifacts:
+          path: coverage
+
       - save_cache:
           paths:
             - node_modules

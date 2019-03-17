@@ -14,5 +14,5 @@
     "declarationDir": "dist",
     "outDir": "dist"
   },
-  "exclude": ["node_modules", "example"]
+  "exclude": ["node_modules", "example", "**/__tests__", "coverage"]
 }
