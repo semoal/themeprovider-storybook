@@ -1,52 +1,41 @@
 import addons from "@storybook/addons";
-import { List } from "immutable";
 import * as React from "react";
-import {
-  branch,
-  compose,
-  lifecycle,
-  renderNothing,
-  withState,
-} from "recompose";
 import { ThemeProvider } from "styled-components";
 import { Theme } from "./types/Theme";
 
 export interface IThemesProviderProps {
-  themes: List<Theme>;
-}
-
-interface IThemesProviderState {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
-}
-
-interface IThemesProviderState {
+  themes: Theme[];
   children: React.ReactChild;
 }
 
-type BaseComponentProps = IThemesProviderProps &
-  IThemesProviderState &
-  IThemesProviderState;
+interface IThemesProvider {
+  children: React.ReactChild;
+  theme: Theme;
+}
+
+type BaseComponentProps = IThemesProvider;
 
 const BaseComponent: React.FunctionComponent<BaseComponentProps> = ({
   theme,
   children,
 }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 
-export const ThemesProvider = compose<BaseComponentProps, IThemesProviderProps>(
-  withState("theme", "setTheme", null),
-  lifecycle<BaseComponentProps, BaseComponentProps>({
-    componentDidMount() {
-      const { setTheme, themes } = this.props;
-      const channel = addons.getChannel();
-      channel.on("selectTheme", setTheme);
-      channel.emit("setThemes", themes);
-    },
-    componentWillUnmount() {
-      const { setTheme } = this.props;
-      const channel = addons.getChannel();
-      channel.removeListener("selectTheme", setTheme);
-    },
-  }),
-  branch<BaseComponentProps>((props) => !props.theme, renderNothing),
-)(BaseComponent);
+export const ThemesProvider: React.FunctionComponent<IThemesProviderProps> = ({ children, themes }) => {
+  const [theme, setTheme] = React.useState(null);
+
+  React.useEffect(() => {
+    const channel = addons.getChannel();
+    channel.on("selectTheme", setTheme);
+    channel.emit("setThemes", themes);
+    return () => {
+      const channelUnmount = addons.getChannel();
+      channelUnmount.removeListener("selectTheme", setTheme);
+    };
+  }, [themes, children]);
+
+  return theme ? (
+    <BaseComponent theme={theme}>{children}</BaseComponent>
+  ) : (
+    null
+  );
+};

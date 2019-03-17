@@ -41,7 +41,7 @@ addDecorator(withThemesProvider(themes));
 
 addParameters({
   options: {
-    name: 'Themeprovider-example'
+    brandTitle: 'Themeprovider-example'
   }
 })
 

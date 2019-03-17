@@ -1,4 +1,3 @@
-import { List } from "immutable";
 import * as React from "react";
 import { BackgroundHelper } from "./Background";
 import { ThemesProvider } from "./ThemesProvider";
@@ -8,8 +7,8 @@ export const withThemesProvider = (themes: Theme[]) => (
   story: any,
 ): JSX.Element => {
   return (
-    <ThemesProvider themes={List(themes)}>
-      <BackgroundHelper themes={List(themes)}>{story()}</BackgroundHelper>
+    <ThemesProvider themes={themes}>
+      <BackgroundHelper themes={themes}>{story()}</BackgroundHelper>
     </ThemesProvider>
   );
 };
