@@ -55,7 +55,10 @@ jobs:
           command: cd dist/ && npm publish
 workflows:
   version: 2
-  pre-deploy:
+  prepare-pr:
+    jobs:
+      - test
+  deploy:
     jobs:
       - test:
           filters:
@@ -67,6 +70,3 @@ workflows:
           filters:
             branches:
               only: master
-  prepare-pr:
-    jobs:
-      - test
