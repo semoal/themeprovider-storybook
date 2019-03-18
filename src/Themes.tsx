@@ -1,74 +1,81 @@
 import { List } from "immutable";
 import * as React from "react";
-import { branch, compose, lifecycle, renderNothing, withHandlers, withState } from "recompose";
 import { Button, Row } from "./Button";
 import { Theme } from "./types/Theme";
 
 export interface IThemeProps {
-    channel: any;
-    api: any;
-    active: boolean;
+  channel: any;
+  api: any;
+  active: boolean;
 }
 
-interface IThemeState {
-    theme: Theme;
-    setTheme: (theme: Theme) => void;
-    themes: List<Theme>;
-    setThemes: (themes: List<Theme>) => void;
+interface IButtonProps {
+  onSelectTheme: (theme: Theme) => void;
+  theme: Theme;
+  themes: List<Theme>;
 }
 
-interface IThemeHandler {
-    onSelectTheme: (theme: Theme) => void;
-    onReceiveThemes: (theme: Theme[]) => void;
-}
-
-type BaseComponentProps = IThemeProps & IThemeState & IThemeHandler;
-
-const BaseComponent: React.FunctionComponent<BaseComponentProps> = ({ onSelectTheme, themes, theme }) => (
-    /* tslint:disable:jsx-no-multiline-js jsx-no-lambda*/
-    <Row>
-      {
-        themes.map((th, i) => (
-          <Button isSelected={th === theme} key={i} onClick={() => onSelectTheme(th)}>
-            {th.name}
-          </Button>
-        )).toArray()
-      }
-    </Row>
+const BaseComponent: React.FunctionComponent<IButtonProps> = ({
+  onSelectTheme,
+  themes,
+  theme,
+}) => (
+  /* tslint:disable:jsx-no-multiline-js jsx-no-lambda*/
+  <Row>
+    {themes
+      .map((th, i) => (
+        <Button
+          isSelected={th === theme}
+          key={i}
+          onClick={() => onSelectTheme(th)}
+        >
+          {th.name}
+        </Button>
+      ))
+      .toArray()}
+  </Row>
 );
 
-export const Themes = compose<BaseComponentProps, IThemeProps>(
-    withState("theme", "setTheme", null),
-    withState("themes", "setThemes", List()),
-    withHandlers<IThemeProps & IThemeState, IThemeHandler>({
-        onReceiveThemes: ({ setTheme, setThemes, channel, api }) => (newThemes: Theme[]) => {
-            const themes = List(newThemes);
-            const themeName = api.getQueryParam("theme");
-            setThemes(List(themes));
-            if (themes.count() > 0) {
-              const theme = themes.find((t) => t.name === themeName) || themes.first();
-              setTheme(theme);
-              channel.emit("selectTheme", theme);
-            }
-        },
-        onSelectTheme: ({ channel, setTheme, api }) => (theme) => {
-          setTheme(theme);
-          api.setQueryParams({ theme: theme.name });
-          channel.emit("selectTheme", theme);
-      },
-    }),
-    lifecycle<BaseComponentProps, BaseComponentProps>({
-        componentDidMount() {
-          const { channel, onReceiveThemes } = this.props;
-          channel.on("setThemes", onReceiveThemes);
-        },
-        componentWillUnmount() {
-          const { channel, onReceiveThemes } = this.props;
-          channel.removeListener("setThemes", onReceiveThemes);
-        },
-    }),
-    branch<BaseComponentProps>(
-        ({ theme, active }) => !theme || !active,
-        renderNothing,
-    ),
-)(BaseComponent);
+export const Themes: React.FunctionComponent<IThemeProps> = ({
+  channel,
+  api,
+  active,
+}) => {
+  const [theme, setTheme] = React.useState(null);
+  const [themes, setThemes] = React.useState(List());
+
+  const onReceiveThemes = (newThemes: Theme[]) => {
+    // tslint:disable-next-line: no-shadowed-variable
+    const themes = List(newThemes);
+    const themeName = api.getQueryParam("theme");
+    setThemes(themes);
+    if (themes.count() > 0) {
+      // tslint:disable-next-line: no-shadowed-variable
+      const theme =
+        themes.find((t) => t.name === themeName) || themes.first();
+      setTheme(theme);
+      channel.emit("selectTheme", theme);
+    }
+  };
+
+  const onSelectTheme = (thm: Theme) => {
+    setTheme(thm);
+    api.setQueryParams({ theme: thm.name });
+    channel.emit("selectTheme", thm);
+  };
+
+  React.useEffect(() => {
+    channel.on("setThemes", onReceiveThemes);
+    return () => {
+      channel.removeListener("setThemes", onReceiveThemes);
+    };
+  });
+
+  return theme && active ? (
+    <BaseComponent
+      onSelectTheme={onSelectTheme}
+      themes={themes}
+      theme={theme}
+    />
+  ) : null;
+};

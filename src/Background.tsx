@@ -1,10 +1,11 @@
 import addons from "@storybook/addons";
+import { List} from "immutable";
 import * as React from "react";
 import styled from "styled-components";
 import { Theme } from "./types/Theme";
 
 export interface IThemesProviderProps {
-  themes: Theme[];
+  themes: List<Theme>;
   children: React.ReactChild;
 }
 
