@@ -62,11 +62,13 @@ workflows:
     jobs:
       - test:
           filters:
-            branches:
-              only: master
+            tags:
+              only: /^v.*/
       - deploy:
           requires:
             - test
           filters:
+            tags:
+              only: /^v.*/
             branches:
-              only: master
+              ignore: /.*/
