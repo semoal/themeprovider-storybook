@@ -1,6 +1,13 @@
 # Storybook SC ThemeProvider
 
-[![npm version](https://badge.fury.io/js/themeprovider-storybook.svg)](https://badge.fury.io/js/themeprovider-storybook) [![Greenkeeper badge](https://badges.greenkeeper.io/semoal/themeprovider-storybook.svg)](https://greenkeeper.io/)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/semoal/themeprovider-storybook.svg)
+![CircleCI (all branches)](https://img.shields.io/circleci/project/github/semoal/themeprovider-storybook.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/semoal/themeprovider-storybook.svg)
+![npm](https://img.shields.io/npm/dy/themeprovider-storybook.svg)
+![GitHub](https://img.shields.io/github/license/semoal/themeprovider-storybook.svg)
+[![Greenkeeper badge](https://badges.greenkeeper.io/semoal/themeprovider-storybook.svg)](https://greenkeeper.io/)
+
+---
 
 The ThemeProvider storybook addon let's you show your Styled-Components theme on your favourite [Storybook](https://storybook.js.org) UI at runtime.
 
