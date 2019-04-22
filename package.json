@@ -42,7 +42,7 @@
     "jest": "^24.5.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "^2.1.8",
+    "react-scripts": "^3.0.0",
     "rimraf": "^2.6.3",
     "sinon": "^7.2.7",
     "styled-components": "^4.1.3",
