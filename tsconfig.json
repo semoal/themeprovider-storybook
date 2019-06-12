@@ -4,6 +4,7 @@
     "module": "commonjs",
     "sourceMap": true,
     "noImplicitAny": false,
+    "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "declaration": true,
@@ -14,5 +15,5 @@
     "declarationDir": "dist",
     "outDir": "dist"
   },
-  "exclude": ["node_modules", "example", "**/__tests__", "coverage"]
+  "exclude": ["node_modules", "example", "**/__tests__", "coverage", "dist"]
 }

@@ -30,6 +30,7 @@ const Button = styled.button<IStyledButton>`
   user-select: none;
   opacity: 1;
   margin: 0 1em 0 0;
+  max-height: 3em;
   outline: none;
   font-family: inherit;
   font-size: inherit;
