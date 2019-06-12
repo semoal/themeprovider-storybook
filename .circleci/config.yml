@@ -60,10 +60,6 @@ workflows:
       - test
   deploy:
     jobs:
-      - test:
-          filters:
-            tags:
-              only: /^v.*/
       - deploy:
           requires:
             - test
@@ -71,4 +67,6 @@ workflows:
             tags:
               only: /^v.*/
             branches:
-              ignore: /.*/
+              only:
+                - master
+                - /rc-.*/
