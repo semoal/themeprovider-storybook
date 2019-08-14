@@ -46,7 +46,7 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
-    "rimraf": "^2.6.3",
+    "rimraf": "^3.0.0",
     "sinon": "^7.3.2",
     "styled-components": "^4.3.1",
     "ts-jest": "^24.0.2",
