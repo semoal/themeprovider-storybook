@@ -38,7 +38,7 @@
     "@types/styled-components": "^4.1.16",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
-    "concurrently": "^4.1.0",
+    "concurrently": "^5.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
