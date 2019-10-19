@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SCModal, { ModalProvider, BaseModalBackground } from 'styled-react-modal';
+import SCModal, { BaseModalBackground, ModalProvider } from "styled-react-modal";
 import SvgIcon from "./SvgIcon";
 
 // @ts-ignore
@@ -13,7 +13,7 @@ const StyledModal = SCModal.styled`
   padding: 0;
   background-color: white;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-  opacity: ${props => props.opacity};
+  opacity: ${(props) => props.opacity};
   transition: opacity ease 500ms;
 `;
 
@@ -40,14 +40,14 @@ const Body = styled.div`
   box-sizing: border-box;
 `;
 
-export interface ModalProps {
+export interface IModalProps {
   children: React.ReactElement;
   isOpen: boolean;
   headerTitle: string;
   toggleModal: (e?: any) => void;
-};
+}
 
-const Modal = React.memo(({ children, isOpen, toggleModal, headerTitle }: ModalProps) => {
+const Modal = React.memo(({ children, isOpen, toggleModal, headerTitle }: IModalProps) => {
   const [opacity, setOpacity] = React.useState(0);
 
   return (
@@ -68,11 +68,11 @@ const Modal = React.memo(({ children, isOpen, toggleModal, headerTitle }: ModalP
         {children}
       </Body>
     </StyledModal>
-  )
+  );
 });
 
 export {
   Modal,
   BaseModalBackground,
-  ModalProvider
-}
+  ModalProvider,
+};

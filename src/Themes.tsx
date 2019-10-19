@@ -1,8 +1,8 @@
 import { List } from "immutable";
 import * as React from "react";
 import { Button, Row } from "./components/Button";
-import { Theme } from "./types/Theme";
 import SvgIcon from "./components/SvgIcon";
+import { Theme } from "./types/Theme";
 
 export interface IThemeProps {
   channel: any;
@@ -33,7 +33,7 @@ const BaseComponent: React.FunctionComponent<IButtonProps> = ({
           onClick={() => onSelectTheme(th)}
         >
           <span>{th.name}</span>
-          <SvgIcon style={{ marginLeft: '1em' }} name="info" onClick={() => onOpenModal()} />
+          <SvgIcon style={{ marginLeft: "1em" }} name="info" onClick={() => onOpenModal()} />
         </Button>
       ))
       .toArray()}
@@ -62,15 +62,15 @@ export const Themes: React.FunctionComponent<IThemeProps> = ({
     }
   };
 
-  const onSelectTheme = (theme: Theme) => {
-    setTheme(theme);
-    api.setQueryParams({ theme: theme.name });
-    channel.emit("selectTheme", theme);
+  const onSelectTheme = (customTheme: Theme) => {
+    setTheme(customTheme);
+    api.setQueryParams({ theme: customTheme.name });
+    channel.emit("selectTheme", customTheme);
   };
 
   const onOpenModal = () => {
     channel.emit("openModal", true);
-  }
+  };
 
   React.useEffect(() => {
     channel.on("setThemes", onReceiveThemes);

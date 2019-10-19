@@ -1,6 +1,6 @@
 {
   "name": "themeprovider-storybook",
-  "version": "1.2.0",
+  "version": "1.1.2",
   "description": "Use your styled-components themes on your favourite storybook",
   "main": "index.js",
   "types": "index.d.ts",
@@ -58,7 +58,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/semoal/themeprovider-storybook.git"
+    "url": "https://github.com/semoal/themeprovider-storybook.git"
   },
   "keywords": [],
   "author": " <Sergio Moreno>",

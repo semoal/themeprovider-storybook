@@ -1,10 +1,10 @@
 import addons from "@storybook/addons";
 import { List} from "immutable";
 import * as React from "react";
+import ReactJson from "react-json-view";
 import styled from "styled-components";
-import { Theme } from "./types/Theme";
 import { Modal } from "./components/Modal";
-import ReactJson from 'react-json-view'
+import { Theme } from "./types/Theme";
 
 export interface IThemesProviderProps {
   themes: List<Theme>;
@@ -55,7 +55,7 @@ export const BackgroundHelper: React.FunctionComponent<IThemesProviderProps> = (
     return () => {
       channel = addons.getChannel();
       channel.removeListener("openModal", setTheme);
-    }
+    };
   }, []);
 
   return theme ? (

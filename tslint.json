@@ -2,6 +2,8 @@
   "defaultSeverity": "error",
   "extends": ["tslint:recommended", "tslint-react"],
   "jsRules": {},
-  "rules": {},
+  "rules": {
+    "jsx-no-lambda": false
+  },
   "rulesDirectory": []
 }
