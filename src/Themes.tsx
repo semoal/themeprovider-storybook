@@ -1,8 +1,8 @@
 import { List } from "immutable";
 import * as React from "react";
 import { Button, Row } from "./components/Button";
-import { PlusInfo } from "./components/PlusInfo";
 import { Theme } from "./types/Theme";
+import SvgIcon from "./components/SvgIcon";
 
 export interface IThemeProps {
   channel: any;
@@ -33,7 +33,7 @@ const BaseComponent: React.FunctionComponent<IButtonProps> = ({
           onClick={() => onSelectTheme(th)}
         >
           <span>{th.name}</span>
-          <PlusInfo onClick={() => onOpenModal()} />
+          <SvgIcon style={{ marginLeft: '1em' }} name="info" onClick={() => onOpenModal()} />
         </Button>
       ))
       .toArray()}

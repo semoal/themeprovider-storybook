@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import SCModal, { ModalProvider, BaseModalBackground } from 'styled-react-modal';
-import { IconClose } from "./IconClose";
+import SvgIcon from "./SvgIcon";
 
 // @ts-ignore
 const StyledModal = SCModal.styled`
@@ -62,7 +62,7 @@ const Modal = React.memo(({ children, isOpen, toggleModal, headerTitle }: ModalP
     >
       <Header>
         {headerTitle}
-        <IconClose onClick={toggleModal} />
+        <SvgIcon name="close" onClick={toggleModal} />
       </Header>
       <Body>
         {children}
