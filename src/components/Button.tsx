@@ -26,6 +26,9 @@ const Button = styled.button<IStyledButton>`
   transition: all 150ms ease-out;
   transform: translate3d(0, 0, 0);
   vertical-align: top;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   white-space: nowrap;
   user-select: none;
   opacity: 1;

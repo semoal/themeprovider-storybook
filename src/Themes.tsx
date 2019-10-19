@@ -1,6 +1,7 @@
 import { List } from "immutable";
 import * as React from "react";
-import { Button, Row } from "./Button";
+import { Button, Row } from "./components/Button";
+import { PlusInfo } from "./components/PlusInfo";
 import { Theme } from "./types/Theme";
 
 export interface IThemeProps {
@@ -12,6 +13,7 @@ export interface IThemeProps {
 interface IButtonProps {
   onSelectTheme: (theme: Theme) => void;
   theme: Theme;
+  onOpenModal: () => void;
   themes: List<Theme>;
 }
 
@@ -19,6 +21,7 @@ const BaseComponent: React.FunctionComponent<IButtonProps> = ({
   onSelectTheme,
   themes,
   theme,
+  onOpenModal,
 }) => (
   /* tslint:disable:jsx-no-multiline-js jsx-no-lambda*/
   <Row>
@@ -29,7 +32,8 @@ const BaseComponent: React.FunctionComponent<IButtonProps> = ({
           key={i}
           onClick={() => onSelectTheme(th)}
         >
-          {th.name}
+          <span>{th.name}</span>
+          <PlusInfo onClick={() => onOpenModal()} />
         </Button>
       ))
       .toArray()}
@@ -58,21 +62,26 @@ export const Themes: React.FunctionComponent<IThemeProps> = ({
     }
   };
 
-  const onSelectTheme = (thm: Theme) => {
-    setTheme(thm);
-    api.setQueryParams({ theme: thm.name });
-    channel.emit("selectTheme", thm);
+  const onSelectTheme = (theme: Theme) => {
+    setTheme(theme);
+    api.setQueryParams({ theme: theme.name });
+    channel.emit("selectTheme", theme);
   };
+
+  const onOpenModal = () => {
+    channel.emit("openModal", true);
+  }
 
   React.useEffect(() => {
     channel.on("setThemes", onReceiveThemes);
     return () => {
       channel.removeListener("setThemes", onReceiveThemes);
     };
-  });
+  }, []);
 
   return theme && active ? (
     <BaseComponent
+      onOpenModal={onOpenModal}
       onSelectTheme={onSelectTheme}
       themes={themes}
       theme={theme}

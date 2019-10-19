@@ -3,6 +3,8 @@ import { List} from "immutable";
 import * as React from "react";
 import styled from "styled-components";
 import { Theme } from "./types/Theme";
+import { Modal } from "./components/Modal";
+import ReactJson from 'react-json-view'
 
 export interface IThemesProviderProps {
   themes: List<Theme>;
@@ -34,6 +36,8 @@ const BaseComponent: React.FunctionComponent<BaseComponentProps> = ({
 
 export const BackgroundHelper: React.FunctionComponent<IThemesProviderProps> = ({ children, themes }) => {
   const [theme, setTheme] = React.useState(null);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const toggleModal = () => setIsOpen(!isOpen);
 
   React.useEffect(() => {
     let channel = addons.getChannel();
@@ -45,8 +49,24 @@ export const BackgroundHelper: React.FunctionComponent<IThemesProviderProps> = (
     };
   }, [themes, children]);
 
+  React.useEffect(() => {
+    let channel = addons.getChannel();
+    channel.on("openModal", toggleModal);
+    return () => {
+      channel = addons.getChannel();
+      channel.removeListener("openModal", setTheme);
+    }
+  }, []);
+
   return theme ? (
-    <BaseComponent theme={theme}>{children}</BaseComponent>
+    <BaseComponent theme={theme}>
+      <>
+      <Modal isOpen={isOpen} toggleModal={toggleModal} headerTitle={theme.name}>
+        <ReactJson src={theme} displayObjectSize={false} indentWidth={2} />
+      </Modal>
+      {children}
+      </>
+    </BaseComponent>
   ) : (
     null
   );
