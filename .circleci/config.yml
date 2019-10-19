@@ -52,9 +52,10 @@ jobs:
           command: npm run wolk
       - run:
           name: Settings github
-          command: git config user.email $GITHUB_EMAIL:-"circle@circle-ci.org"
-          command: git config user.name $GITHUB_USER:-"Circle CI"
-          command: git remote set-url origin $CIRCLE_REPOSITORY_URL
+          command: |
+            git config user.email $GITHUB_EMAIL:-"circle@circle-ci.org"
+            git config user.name $GITHUB_USER:-"Circle CI"
+            git remote set-url origin $CIRCLE_REPOSITORY_URL
       - run:
           name: Publish package
           command: npm run release
