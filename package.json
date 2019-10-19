@@ -45,7 +45,7 @@
     "enzyme-adapter-react-16": "^1.15.1",
     "enzyme-to-json": "^3.4.3",
     "jest": "^24.9.0",
-    "react": "^16.8.4",
+    "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "^3.2.0",
     "rimraf": "^3.0.0",
