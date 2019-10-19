@@ -52,7 +52,7 @@ jobs:
           command: npm run wolk
       - run:
           name: Publish package
-          command: cd dist/ && npm publish
+          command: npm run release
 workflows:
   version: 2
   prepare-pr:

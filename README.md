@@ -7,11 +7,14 @@
 ![GitHub](https://img.shields.io/github/license/semoal/themeprovider-storybook.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/semoal/themeprovider-storybook.svg)](https://greenkeeper.io/)
 
+## Added new features
+⚠️ v1.2.0 - Added preview of the theme selected ⚠️
+
 ---
 
 The ThemeProvider storybook addon let's you show your Styled-Components theme on your favourite [Storybook](https://storybook.js.org) UI at runtime.
 
-![Screenshot](https://j.gifs.com/BNLlLo.gif)
+![Screenshot](https://i.imgur.com/y1Je5xR.gif)
 
 ## Getting Started
 

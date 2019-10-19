@@ -1,6 +1,7 @@
 import { List } from "immutable";
 import * as React from "react";
-import { Button, Row } from "./Button";
+import { Button, Row } from "./components/Button";
+import SvgIcon from "./components/SvgIcon";
 import { Theme } from "./types/Theme";
 
 export interface IThemeProps {
@@ -12,6 +13,7 @@ export interface IThemeProps {
 interface IButtonProps {
   onSelectTheme: (theme: Theme) => void;
   theme: Theme;
+  onOpenModal: () => void;
   themes: List<Theme>;
 }
 
@@ -19,6 +21,7 @@ const BaseComponent: React.FunctionComponent<IButtonProps> = ({
   onSelectTheme,
   themes,
   theme,
+  onOpenModal,
 }) => (
   /* tslint:disable:jsx-no-multiline-js jsx-no-lambda*/
   <Row>
@@ -29,7 +32,8 @@ const BaseComponent: React.FunctionComponent<IButtonProps> = ({
           key={i}
           onClick={() => onSelectTheme(th)}
         >
-          {th.name}
+          <span>{th.name}</span>
+          <SvgIcon style={{ marginLeft: "1em" }} name="info" onClick={() => onOpenModal()} />
         </Button>
       ))
       .toArray()}
@@ -58,10 +62,14 @@ export const Themes: React.FunctionComponent<IThemeProps> = ({
     }
   };
 
-  const onSelectTheme = (thm: Theme) => {
-    setTheme(thm);
-    api.setQueryParams({ theme: thm.name });
-    channel.emit("selectTheme", thm);
+  const onSelectTheme = (customTheme: Theme) => {
+    setTheme(customTheme);
+    api.setQueryParams({ theme: customTheme.name });
+    channel.emit("selectTheme", customTheme);
+  };
+
+  const onOpenModal = () => {
+    channel.emit("openModal", true);
   };
 
   React.useEffect(() => {
@@ -69,10 +77,11 @@ export const Themes: React.FunctionComponent<IThemeProps> = ({
     return () => {
       channel.removeListener("setThemes", onReceiveThemes);
     };
-  });
+  }, []);
 
   return theme && active ? (
     <BaseComponent
+      onOpenModal={onOpenModal}
       onSelectTheme={onSelectTheme}
       themes={themes}
       theme={theme}

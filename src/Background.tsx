@@ -1,7 +1,9 @@
 import addons from "@storybook/addons";
 import { List} from "immutable";
 import * as React from "react";
+import ReactJson from "react-json-view";
 import styled from "styled-components";
+import { Modal } from "./components/Modal";
 import { Theme } from "./types/Theme";
 
 export interface IThemesProviderProps {
@@ -34,6 +36,8 @@ const BaseComponent: React.FunctionComponent<BaseComponentProps> = ({
 
 export const BackgroundHelper: React.FunctionComponent<IThemesProviderProps> = ({ children, themes }) => {
   const [theme, setTheme] = React.useState(null);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const toggleModal = () => setIsOpen(!isOpen);
 
   React.useEffect(() => {
     let channel = addons.getChannel();
@@ -45,8 +49,24 @@ export const BackgroundHelper: React.FunctionComponent<IThemesProviderProps> = (
     };
   }, [themes, children]);
 
+  React.useEffect(() => {
+    let channel = addons.getChannel();
+    channel.on("openModal", toggleModal);
+    return () => {
+      channel = addons.getChannel();
+      channel.removeListener("openModal", setTheme);
+    };
+  }, []);
+
   return theme ? (
-    <BaseComponent theme={theme}>{children}</BaseComponent>
+    <BaseComponent theme={theme}>
+      <>
+      <Modal isOpen={isOpen} toggleModal={toggleModal} headerTitle={theme.name}>
+        <ReactJson src={theme} displayObjectSize={false} indentWidth={2} />
+      </Modal>
+      {children}
+      </>
+    </BaseComponent>
   ) : (
     null
   );

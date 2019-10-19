@@ -1,8 +1,9 @@
 {
   "name": "themeprovider-storybook",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Use your styled-components themes on your favourite storybook",
   "main": "index.js",
+  "files": ["dist/"],
   "types": "index.d.ts",
   "scripts": {
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'src/**/*.tsx'",
@@ -11,13 +12,19 @@
     "dev": "concurrently --kill-others \"npm run watch:tsc\" \"npm run watch:storybook\"",
     "build": "rimraf dist/ && tsc",
     "wolk": "cp package.json LICENSE README.md dist",
-    "test": "rimraf dist && jest"
+    "test": "rimraf dist && jest",
+    "postrelease": "npm run release:tags && npm run release:github",
+    "release": "standard-version",
+    "release:github": "conventional-github-releaser -p angular",
+    "release:tags": "git push --follow-tags origin master"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "immutable": "^4.0.0-rc.12"
+    "immutable": "^4.0.0-rc.12",
+    "react-json-view": "^1.19.1",
+    "styled-react-modal": "^2.0.0"
   },
   "peerDependencies": {
     "@storybook/addons": "^5.x",
@@ -26,37 +33,39 @@
     "styled-components": "^4.x"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
     "@storybook/addons": "^5.0.3",
     "@storybook/react": "^5.0.3",
-    "@types/jest": "^24.0.13",
-    "@types/node": "^12.0.8",
-    "@types/react": "^16.8.19",
-    "@types/react-dom": "^16.8.4",
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.11.1",
+    "@types/react": "^16.9.9",
+    "@types/react-dom": "^16.9.2",
     "@types/storybook__react": "^4.0.2",
-    "@types/styled-components": "^4.1.16",
+    "@types/styled-components": "^4.1.19",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
-    "concurrently": "^4.1.0",
+    "concurrently": "^5.0.0",
+    "conventional-github-releaser": "^3.1.3",
     "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "enzyme-to-json": "^3.3.5",
-    "jest": "^24.8.0",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.6",
-    "react-scripts": "^3.0.1",
-    "rimraf": "^2.6.3",
-    "sinon": "^7.3.2",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3",
+    "jest": "^24.9.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-scripts": "^3.2.0",
+    "rimraf": "^3.0.0",
+    "sinon": "^7.5.0",
+    "standard-version": "^7.0.0",
     "styled-components": "^4.3.1",
-    "ts-jest": "^24.0.2",
-    "tslint": "^5.17.0",
-    "tslint-react": "^4.0.0",
-    "typescript": "^3.5.1"
+    "ts-jest": "^24.1.0",
+    "tslint": "^5.20.0",
+    "tslint-react": "^4.1.0",
+    "typescript": "^3.6.4"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/semoal/themeprovider-storybook.git"
+    "url": "https://github.com/semoal/themeprovider-storybook.git"
   },
   "keywords": [],
   "author": " <Sergio Moreno>",
