@@ -11,14 +11,14 @@ module.exports = {
       "@semantic-release/npm",
       {
         npmPublish: true,
-        pkgRoot: "package",
+        pkgRoot: "dist",
       },
     ],
     {
       assets: ["package.json", "CHANGELOG.md"],
-      message:
-        "chore(release): ${nextRelease.version} [skip ci]nn${nextRelease.notes}",
-      path: "@semantic-release/github",
+      message: "chore(release): ${nextRelease.version} [skip ci]nn${nextRelease.notes}",
+      path: "@semantic-release/git",
     },
+    "@semantic-release/github"
   ],
 };
