@@ -49,7 +49,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/dist/.npmrc
       - run:
           name: Prepare package
-          command: npm run wolk
+          command: npm run unpack
       - run:
           name: Publish package
           command: npm run release

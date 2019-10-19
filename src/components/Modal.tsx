@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SCModal, { BaseModalBackground, ModalProvider } from "styled-react-modal";
+import SCModal, { ModalProvider } from "styled-react-modal";
 import SvgIcon from "./SvgIcon";
 
 // @ts-ignore
@@ -73,6 +73,5 @@ const Modal = React.memo(({ children, isOpen, toggleModal, headerTitle }: ModalP
 
 export {
   Modal,
-  BaseModalBackground,
   ModalProvider,
 };

@@ -2,20 +2,36 @@
   "name": "themeprovider-storybook",
   "version": "1.2.1",
   "description": "Use your styled-components themes on your favourite storybook",
-  "main": "index.js",
-  "files": [
-    "dist/"
-  ],
-  "types": "index.d.ts",
   "scripts": {
     "lint": "eslint 'src/**/*.ts' 'src/**/*.tsx'",
     "watch:storybook": "start-storybook -p 6006 -c example/.storybook",
     "watch:tsc": "tsc -w",
     "dev": "concurrently --kill-others \"npm run watch:tsc\" \"npm run watch:storybook\"",
-    "build": "rimraf dist/ && tsc",
-    "wolk": "cp package.json LICENSE README.md dist",
-    "test": "rimraf dist && jest",
+    "build": "rimraf pkg && pack build",
+    "test": "rimraf pkg && jest",
+    "unpack": "./scripts/unpack.sh",
     "release": "semantic-release"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg",
+        {
+          "exclude": [
+            "__tests__/**/*"
+          ]
+        }
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-types"
+      ]
+    ]
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
@@ -34,6 +50,12 @@
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
+    "@pika/pack": "0.4.0",
+    "@pika/plugin-build-node": "^0.6.1",
+    "@pika/plugin-build-types": "^0.6.1",
+    "@pika/plugin-build-web": "^0.6.1",
+    "@pika/plugin-standard-pkg": "^0.6.1",
+    "@semantic-release/changelog": "^3.0.4",
     "@storybook/addons": "^5.0.3",
     "@storybook/react": "^5.0.3",
     "@types/jest": "^24.0.19",
