@@ -1,22 +1,22 @@
 import addons from "@storybook/addons";
-import { List} from "immutable";
+import { List} from "immutable";
 import * as React from "react";
 import ReactJson from "react-json-view";
 import styled from "styled-components";
 import { Modal } from "./components/Modal";
 import { Theme } from "./types/Theme";
 
-export interface IThemesProviderProps {
+export interface ThemesProviderProps {
   themes: List<Theme>;
   children: React.ReactChild;
 }
 
-interface IThemesProvider {
+interface ThemesProvider {
   children: React.ReactChild;
   theme: Theme;
 }
 
-type BaseComponentProps = IThemesProvider;
+type BaseComponentProps = ThemesProvider;
 
 const BackgroundContainer = styled.div<{ backgroundColor: string }>`
   background-color: ${({ backgroundColor }) => backgroundColor || "#fff"};
@@ -34,7 +34,7 @@ const BaseComponent: React.FunctionComponent<BaseComponentProps> = ({
   </BackgroundContainer>
 );
 
-export const BackgroundHelper: React.FunctionComponent<IThemesProviderProps> = ({ children, themes }) => {
+export const BackgroundHelper: React.FunctionComponent<ThemesProviderProps> = ({ children, themes }) => {
   const [theme, setTheme] = React.useState(null);
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleModal = () => setIsOpen(!isOpen);

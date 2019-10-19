@@ -4,20 +4,20 @@ import { Button, Row } from "./components/Button";
 import SvgIcon from "./components/SvgIcon";
 import { Theme } from "./types/Theme";
 
-export interface IThemeProps {
+export interface ThemeProps {
   channel: any;
   api: any;
   active: boolean;
 }
 
-interface IButtonProps {
+interface ButtonProps {
   onSelectTheme: (theme: Theme) => void;
   theme: Theme;
   onOpenModal: () => void;
   themes: List<Theme>;
 }
 
-const BaseComponent: React.FunctionComponent<IButtonProps> = ({
+const BaseComponent: React.FunctionComponent<ButtonProps> = ({
   onSelectTheme,
   themes,
   theme,
@@ -40,7 +40,7 @@ const BaseComponent: React.FunctionComponent<IButtonProps> = ({
   </Row>
 );
 
-export const Themes: React.FunctionComponent<IThemeProps> = ({
+export const Themes: React.FunctionComponent<ThemeProps> = ({
   channel,
   api,
   active,

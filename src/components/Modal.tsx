@@ -40,14 +40,14 @@ const Body = styled.div`
   box-sizing: border-box;
 `;
 
-export interface IModalProps {
+export interface ModalProps {
   children: React.ReactElement;
   isOpen: boolean;
   headerTitle: string;
   toggleModal: (e?: any) => void;
 }
 
-const Modal = React.memo(({ children, isOpen, toggleModal, headerTitle }: IModalProps) => {
+const Modal = React.memo(({ children, isOpen, toggleModal, headerTitle }: ModalProps) => {
   const [opacity, setOpacity] = React.useState(0);
 
   return (

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-interface IStyledButton {
+interface StyledButton {
   children: any;
   isSelected: boolean;
   key: number;
@@ -13,7 +13,7 @@ const Row = styled.div`
   padding: 15px;
 `;
 
-const Button = styled.button<IStyledButton>`
+const Button = styled.button<StyledButton>`
   border: 0;
   border-radius: 3em;
   cursor: pointer;
@@ -53,7 +53,7 @@ const Button = styled.button<IStyledButton>`
     color: #fcfcfc;
     box-shadow: #2795ee 0 0 0 1px inset;
   `}
-` as React.FunctionComponent<IStyledButton>;
+` as React.FunctionComponent<StyledButton>;
 
 export {
   Row,
