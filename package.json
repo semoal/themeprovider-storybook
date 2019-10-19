@@ -65,7 +65,12 @@
     "type": "git",
     "url": "https://github.com/semoal/themeprovider-storybook.git"
   },
-  "keywords": [],
+  "keywords": [
+    "storybook",
+    "styled-components",
+    "react",
+    "typescript"
+  ],
   "author": " <Sergio Moreno>",
   "license": "MIT",
   "bugs": {
