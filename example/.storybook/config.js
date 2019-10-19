@@ -19,6 +19,11 @@ const themes = [
         opacityDisabled: 0.25,
         borderError: '#e25a66',
       },
+      Common: {
+        backgroundColor: '#1a213f',
+        fontColor: '#808ab1',
+        borderError: '#e25a66'
+      },
     }
   },
   {
@@ -31,6 +36,11 @@ const themes = [
         borderColor: '#808ab1',
         placeholderColor: '#808ab1',
         opacityDisabled: 0.45,
+        borderError: '#e25a66'
+      },
+      Common: {
+        backgroundColor: '#1a213f',
+        fontColor: '#808ab1',
         borderError: '#e25a66'
       },
     }
