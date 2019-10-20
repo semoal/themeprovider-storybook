@@ -9,6 +9,13 @@ module.exports = {
     [
       "@semantic-release/npm",
       {
+        npmPublish: false,
+        pkgRoot: "."
+      },
+    ],
+    [
+      "@semantic-release/npm",
+      {
         npmPublish: true,
         pkgRoot: "dist"
       },
