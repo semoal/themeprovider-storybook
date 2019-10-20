@@ -11,7 +11,7 @@
     "dev": "concurrently --kill-others \"npm run watch:tsc\" \"npm run watch:storybook\"",
     "build": "rimraf dist && tsc && cp ./package.json dist",
     "test": "rimraf dist && jest",
-    "release": "semantic-release",
+    "release": "semantic-release --debug",
     "postpublish": "cp -r dist/package.json ."
   },
   "publishConfig": {
