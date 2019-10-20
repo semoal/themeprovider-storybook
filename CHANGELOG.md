@@ -1,3 +1,11 @@
+## [1.2.3](https://github.com/semoal/themeprovider-storybook/compare/v1.2.2...v1.2.3) (2019-10-20)
+
+
+### Bug Fixes
+
+* deploy ([fab82cc](https://github.com/semoal/themeprovider-storybook/commit/fab82cc248702f401a736f0ae432bec7215d5f97))
+* fix root deploy ([93858d0](https://github.com/semoal/themeprovider-storybook/commit/93858d0f5f746c0b0fcff89b63c517a9ddd3c191))
+
 ## [1.2.2](https://github.com/semoal/themeprovider-storybook/compare/v1.2.1...v1.2.2) (2019-10-20)
 
 
