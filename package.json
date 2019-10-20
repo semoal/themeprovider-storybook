@@ -11,6 +11,7 @@
     "watch:tsc": "tsc -w",
     "dev": "concurrently --kill-others \"npm run watch:tsc\" \"npm run watch:storybook\"",
     "build": "rimraf dist && tsc",
+    "unpack": "./scripts/unpack.sh",
     "test": "rimraf dist && jest",
     "release": "semantic-release"
   },

@@ -13,3 +13,4 @@ jest.config.js
 .editorconfig
 .circleci
 .github
+scripts
