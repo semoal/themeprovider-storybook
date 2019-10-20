@@ -46,7 +46,7 @@ jobs:
           command: npm run build
       - run:
           name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/pkg/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/dist/.npmrc
       - run:
           name: Prepare package
           command: npm run unpack
