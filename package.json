@@ -1,10 +1,12 @@
 {
   "name": "themeprovider-storybook",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Use your styled-components themes on your favourite storybook",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist/**/*"], 
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "lint": "eslint 'src/**/*.ts' 'src/**/*.tsx'",
     "watch:storybook": "start-storybook -p 6006 -c example/.storybook",
