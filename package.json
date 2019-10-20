@@ -2,18 +2,14 @@
   "name": "themeprovider-storybook",
   "version": "1.2.2",
   "description": "Use your styled-components themes on your favourite storybook",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist/**/*"
-  ],
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "lint": "eslint 'src/**/*.ts' 'src/**/*.tsx'",
     "watch:storybook": "start-storybook -p 6006 -c example/.storybook",
     "watch:tsc": "tsc -w",
     "dev": "concurrently --kill-others \"npm run watch:tsc\" \"npm run watch:storybook\"",
-    "build": "rimraf dist && tsc",
-    "unpack": "./scripts/unpack.sh",
+    "build": "rimraf dist && tsc && cp ./package.json dist",
     "test": "rimraf dist && jest",
     "release": "semantic-release"
   },

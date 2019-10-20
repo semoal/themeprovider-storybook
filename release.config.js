@@ -10,8 +10,7 @@ module.exports = {
     [
       "@semantic-release/npm",
       {
-        npmPublish: true,
-        pkgRoot: "package",
+        npmPublish: true
       },
     ],
     {

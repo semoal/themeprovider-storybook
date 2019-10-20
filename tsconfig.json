@@ -11,8 +11,9 @@
     "lib": ["es5", "es6", "dom"],
     "jsx": "react",
     "types": ["node", "jest"],
-    "sourceRoot": "src",
     "declarationDir": "dist",
+    "sourceRoot": "src",
+    "rootDir": "src",
     "outDir": "dist"
   },
   "exclude": ["node_modules", "example", "**/__tests__", "coverage", "dist"]
