@@ -45,9 +45,6 @@ jobs:
           name: Build package
           command: npm run build
       - run:
-          name: Move to package root folder
-          command: cd ~/repo/dist
-      - run:
           name: Publish package
           command: npm run release
 workflows:
