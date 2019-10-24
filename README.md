@@ -6,7 +6,7 @@
 ![npm](https://img.shields.io/npm/dy/themeprovider-storybook.svg)
 ![GitHub](https://img.shields.io/github/license/semoal/themeprovider-storybook.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/semoal/themeprovider-storybook.svg)](https://greenkeeper.io/)
-
+[![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](semanticrelease)
 ## Added new features
 ⚠️ v1.2.0 - Added preview of the theme selected ⚠️
 
