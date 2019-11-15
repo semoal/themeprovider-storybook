@@ -56,3 +56,8 @@ addDecorator(withThemesProvider(themes));
 
 configure(() => require('./stories'), module);
 ```
+
+### Usage with Emotion
+
+Thanks to @gillerg8 you can use this package 100% compatible with Emotion
+> https://github.com/gillerg8/themeprovider-storybook
