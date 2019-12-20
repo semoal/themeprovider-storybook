@@ -45,6 +45,9 @@ jobs:
           name: Build package
           command: npm run build
       - run:
+          name: Test package size
+          command: npm run bundle-size
+      - run:
           name: Publish package
           command: npm run release
 workflows:

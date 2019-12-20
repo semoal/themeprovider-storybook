@@ -11,11 +11,19 @@
     "dev": "concurrently --kill-others \"npm run watch:tsc\" \"npm run watch:storybook\"",
     "build": "rimraf dist && tsc && cp ./package.json dist",
     "test": "rimraf dist && jest",
+    "bundle-size": "bundlesize",
     "release": "semantic-release --debug"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "bundlesize": [
+    {
+      "path": "dist/**/*.{js,d.ts}",
+      "maxSize": "170 KB",
+      "compression": "none"
+    }
+  ],
   "dependencies": {
     "immutable": "^4.0.0-rc.12",
     "react-json-view": "^1.19.1",
@@ -45,6 +53,7 @@
     "@typescript-eslint/parser": "^2.12.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
+    "bundlesize": "^0.18.0",
     "concurrently": "^5.0.2",
     "cz-conventional-changelog": "^3.0.2",
     "enzyme": "^3.11.0",
