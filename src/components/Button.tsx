@@ -23,6 +23,7 @@ const Button = styled.button<StyledButton>`
   position: relative;
   text-align: center;
   text-decoration: none;
+  background: white;
   transition: all 150ms ease-out;
   transform: translate3d(0, 0, 0);
   vertical-align: top;
@@ -38,7 +39,6 @@ const Button = styled.button<StyledButton>`
   font-family: inherit;
   font-size: inherit;
   box-sizing: border-box;
-  background: transparent;
   font-weight: 700;
   line-height: 1;
   box-shadow: rgba(51, 51, 51, 0.2) 0 0 0 1px inset;

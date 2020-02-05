@@ -1,3 +1,1 @@
 import "../../dist/register";
-
-

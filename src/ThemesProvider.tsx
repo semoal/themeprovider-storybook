@@ -6,6 +6,7 @@ import { Theme } from "./types/Theme";
 
 export interface ThemesProviderProps {
   themes: List<Theme>;
+  story?: any;
   children: React.ReactChild;
 }
 
@@ -14,14 +15,7 @@ interface ThemesProvider {
   theme: Theme;
 }
 
-type BaseComponentProps = ThemesProvider;
-
-const BaseComponent: React.FunctionComponent<BaseComponentProps> = ({
-  theme,
-  children,
-}) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
-
-export const ThemesProvider: React.FunctionComponent<ThemesProviderProps> = ({ children, themes }) => {
+export const ThemesProvider: React.FunctionComponent<ThemesProviderProps> = ({ story, children, themes }) => {
   const [theme, setTheme] = React.useState(null);
 
   React.useEffect(() => {
@@ -34,9 +28,6 @@ export const ThemesProvider: React.FunctionComponent<ThemesProviderProps> = ({ c
     };
   }, [themes, children]);
 
-  return theme ? (
-    <BaseComponent theme={theme}>{children}</BaseComponent>
-  ) : (
-    null
-  );
+  if (!theme && story) return <ThemeProvider theme={themes.first()}>{story()}</ThemeProvider>
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 };
