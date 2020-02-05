@@ -10,7 +10,7 @@
     "watch:tsc": "tsc -w",
     "dev": "concurrently --kill-others \"npm run watch:tsc\" \"npm run watch:storybook\"",
     "build": "rimraf dist && tsc && cp ./package.json dist",
-    "test": "rimraf dist && jest",
+    "test": "jest",
     "bundle-size": "bundlesize",
     "release": "semantic-release --debug"
   },
@@ -33,7 +33,7 @@
     "@storybook/addons": "^5.x",
     "@storybook/react": "^5.x",
     "react": "^16.x",
-    "styled-components": "^4.x"
+    "styled-components": "^4.x || ^5.x"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
@@ -42,6 +42,7 @@
     "@commitlint/config-conventional": "^8.2.0",
     "@semantic-release/changelog": "^3.0.6",
     "@semantic-release/git": "^7.0.18",
+    "@storybook/addon-docs": "^5.3.12",
     "@storybook/addons": "^5.0.3",
     "@storybook/react": "^5.2.8",
     "@types/jest": "^24.0.24",

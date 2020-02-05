@@ -18,18 +18,18 @@ const InputType = styled.input`
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: ${({ theme }) => theme.palette.TextField.fontColor};
-  background-color: ${({ theme }) => theme.palette.TextField.backgroundColor};
-  box-shadow: 0 0 0 1px ${({ theme }) => theme.palette.TextField.backgroundColor};
+  color: ${({ theme }) => theme?.palette?.TextField?.fontColor};
+  background-color: ${({ theme }) => theme?.palette?.TextField?.backgroundColor};
+  box-shadow: 0 0 0 1px ${({ theme }) => theme?.palette?.TextField?.backgroundColor};
   &::placeholder {
-    color: ${({ theme }) => theme.palette.TextField.placeholderColor};
+    color: ${({ theme }) => theme?.palette?.TextField?.placeholderColor};
   }
   &:focus {
-    box-shadow: 0 0 0 1px ${({ theme }) => theme.palette.TextField.borderColor};
+    box-shadow: 0 0 0 1px ${({ theme }) => theme?.palette?.TextField?.borderColor};
   }
 `;
 
-storiesOf("InputField", module)
+storiesOf("InputField")
   .add("with themes", () => <InputType />)
   .add("with placeholder", () => <InputType placeholder="Placeholder..." />);
 

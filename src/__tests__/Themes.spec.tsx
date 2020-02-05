@@ -1,24 +1,26 @@
-import { mount } from "enzyme";
+import { mount } from 'enzyme';
 import * as React from "react";
-import { stub } from "sinon";
+import { spy } from "sinon";
 import { Themes } from "../Themes";
 
 describe("Themes spec", () => {
   it("Should render proper", () => {
     const channel = {
-      emit: stub(),
-      on: stub(),
-      removeListener: stub(),
+      emit: spy(),
+      on: spy(),
+      removeListener: spy(),
     };
 
     const component = mount(
-      <Themes api={null} channel={channel} active={true} />,
+      // @ts-ignore
+      <Themes channel={channel} active={true} theme={{ someTheme: {} }} />,
     );
-    expect(component.render()).toMatchSnapshot();
-    expect(channel.on.calledOnce).toBeTruthy();
+
+    expect(component.debug()).toMatchSnapshot();
+    expect(channel.on.called).toBeTruthy();
     expect(channel.emit.notCalled).toBeTruthy();
 
     component.unmount();
-    expect(channel.removeListener.calledOnce).toBeTruthy();
+    expect(channel.removeListener.called).toBeTruthy();
   });
 });

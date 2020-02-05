@@ -23,10 +23,16 @@ jobs:
           command: npm run lint
 
       - run:
+          name: Build package
+          command: npm run build
+
+      - run:
           name: Run Jest and Collect Coverage Reports
-          command: npm run test -- --updateSnapshot
-      - store_artifacts:
-          path: coverage
+          command: npm run test
+
+      - run:
+          name: Test package size
+          command: npm run bundle-size
 
       - save_cache:
           paths:
@@ -41,12 +47,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run:
-          name: Build package
-          command: npm run build
-      - run:
-          name: Test package size
-          command: npm run bundle-size
       - run:
           name: Publish package
           command: npm run release
