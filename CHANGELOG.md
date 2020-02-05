@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/semoal/themeprovider-storybook/compare/v1.2.5...v1.3.0) (2020-02-05)
+
+
+### Bug Fixes
+
+* console warning fixed ([fd71494](https://github.com/semoal/themeprovider-storybook/commit/fd71494d8a2ce2d9cb1a88b5cc8d2693d45a2187))
+* fixed stories are not displayed correctly in DocsPage ([9cdf279](https://github.com/semoal/themeprovider-storybook/commit/9cdf2793b994d02b54e8b5a4824932897be66a3b))
+* fixed Storyshots are blank when using this addon ([4971f0b](https://github.com/semoal/themeprovider-storybook/commit/4971f0ba0958b58850efbcae76775ebabfe6c640))
+
+
+### Features
+
+* now, stores selected theme on local-storage ([aaa4593](https://github.com/semoal/themeprovider-storybook/commit/aaa459342a7dae84a23a04fb709aee0bb808cd96))
+
 ## [1.2.5](https://github.com/semoal/themeprovider-storybook/compare/v1.2.4...v1.2.5) (2019-12-20)
 
 
