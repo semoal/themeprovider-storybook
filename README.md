@@ -55,7 +55,38 @@ addDecorator(withThemesProvider(themes));
 configure(() => require('./stories'), module);
 ```
 
-### Usage with Emotion
+### How to use your own implementation of ThemeProvider
 
-Thanks to @gillerg8 you can use this package 100% compatible with Emotion
-> https://github.com/gillerg8/themeprovider-storybook
+Thanks to @ckknight suggestion, you can easily use your own context for themeprovider.
+
+> This is just an example of a custom theme provider, probably this is not a working, just for suggesting purposes.
+```jsx
+const ThemeContext: Context<Theme | void> = React.createContext();
+const ThemeConsumer = ThemeContext.Consumer;
+
+export default function SomeCustomImplementationOfThemeProvider(props: Props) {
+  const outerTheme = useContext(ThemeContext);
+  const themeContext = useMemo(() => mergeTheme(props.theme, outerTheme), [
+    props.theme,
+    outerTheme,
+  ]);
+
+  if (!props.children) {
+    return null;
+  }
+
+  return <ThemeContext.Provider value={themeContext}>{props.children}</ThemeContext.Provider>;
+}
+```
+
+On config.js file of Storybook, just pass a `CustomThemeProvider`
+```jsx
+import { SomeCustomImplementationOfThemeProvider } from "src/app/CustomThemeProvider.jsx"
+
+addDecorator(
+  withThemesProvider(themes),
+  SomeCustomImplementationOfThemeProvider
+);
+```
+
+`SomeCustomImplementationOfThemeProvider` must admit a `theme` as prop.
