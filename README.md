@@ -9,8 +9,13 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/semoal/themeprovider-storybook.svg)](https://greenkeeper.io/)
 [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](semanticrelease)
 
+This addon helps you to display a Styled-Components ThemeProvider or a custom one in your [Storybook](https://storybook.js.org).
 
-The ThemeProvider storybook addon let's you show your Styled-Components theme on your favourite [Storybook](https://storybook.js.org) UI at runtime.
+- Switches background color.
+- Works on iframes or visual regression testing.
+- Allows passing a custom implementation of your own theme provider.
+- Displays a popup with all the current keys of the theme.
+- You can copy individually a value from the theme.
 
 ![Screenshot](https://i.imgur.com/y1Je5xR.gif)
 
