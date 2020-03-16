@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/semoal/themeprovider-storybook/compare/v1.3.0...v1.4.0) (2020-03-16)
+
+
+### Features
+
+* custom theme provider implementation ([0fcf500](https://github.com/semoal/themeprovider-storybook/commit/0fcf50038f16b034ce3f01cb6b0af766e255f961))
+* custom theme provider implementation ([95c7085](https://github.com/semoal/themeprovider-storybook/commit/95c7085b5d132b1d015325654ca9e0a720dc48f1))
+
 # [1.3.0](https://github.com/semoal/themeprovider-storybook/compare/v1.2.5...v1.3.0) (2020-02-05)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "themeprovider-storybook",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Use your styled-components themes on your favourite storybook",
   "main": "index.js",
   "types": "index.d.ts",
