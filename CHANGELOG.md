@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/semoal/themeprovider-storybook/compare/v1.5.0...v1.5.1) (2020-04-10)
+
+
+### Bug Fixes
+
+* fixed issue that running hooks inside stories crashed [#36](https://github.com/semoal/themeprovider-storybook/issues/36) ([b7de87e](https://github.com/semoal/themeprovider-storybook/commit/b7de87e4b3b17b127433cbb2f7220c7b4274f764))
+
 # [1.5.0](https://github.com/semoal/themeprovider-storybook/compare/v1.4.0...v1.5.0) (2020-04-10)
 
 
