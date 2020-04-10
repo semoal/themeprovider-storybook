@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Input = styled.input`
@@ -34,4 +34,7 @@ export default {
 };
 
 export const InputBase = () => <Input />;
-export const InputWithPlaceholder = () => <Input placeholder="a common placeholder..." />;
+export const InputWithPlaceholder = () => {
+  const [value, setValue] = useState('');
+  return <Input value={value} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)} placeholder="a common placeholder..." />;
+};

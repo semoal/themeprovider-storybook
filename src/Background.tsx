@@ -10,11 +10,6 @@ export interface ThemesProviderProps {
   children: React.ReactChild;
 }
 
-interface ThemesProvider {
-  children: React.ReactChild;
-  theme: Theme;
-}
-
 export const BackgroundHelper: React.FunctionComponent<ThemesProviderProps> = ({ children, themes }) => {
   const [theme, setTheme] = React.useState(null);
   const [isOpen, setIsOpen] = React.useState(false);

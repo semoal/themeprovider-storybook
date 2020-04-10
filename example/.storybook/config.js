@@ -1,4 +1,3 @@
-import React from 'react';
 import { addDecorator, addParameters } from "@storybook/react";
 import { withThemesProvider } from "../../src"
 
@@ -44,12 +43,6 @@ const themes = [
 ]
 
 addDecorator(withThemesProvider(themes));
-
-addDecorator((Story) => (
-  <div>
-    <Story />
-  </div>
-))
 
 addParameters({
   options: {
