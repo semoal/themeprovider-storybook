@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/semoal/themeprovider-storybook/compare/v1.4.0...v1.5.0) (2020-04-10)
+
+
+### Features
+
+* added hover to dotted info to usability purposes ([48066f5](https://github.com/semoal/themeprovider-storybook/commit/48066f540c30b513777d597c80df9f885501bb09))
+
 # [1.4.0](https://github.com/semoal/themeprovider-storybook/compare/v1.3.0...v1.4.0) (2020-03-16)
 
 
