@@ -35,7 +35,7 @@ const BaseComponent: React.FunctionComponent<ButtonProps> = ({
           onClick={() => onSelectTheme(th)}
         >
           <span>{th.name}</span>
-          <SvgIcon style={{ marginLeft: "1em" }} name="info" onClick={() => onOpenModal()} />
+          <SvgIcon name="info" onClick={() => onOpenModal()} />
         </Button>
       ))
       .toArray()}
