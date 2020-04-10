@@ -13,7 +13,7 @@
     "types": ["node", "jest"],
     "declarationDir": "dist",
     "sourceRoot": "src",
-    "rootDir": "src",
+    "rootDirs": ["src", "example"],
     "outDir": "dist"
   },
   "exclude": ["node_modules", "example", "**/__tests__", "coverage", "dist"]

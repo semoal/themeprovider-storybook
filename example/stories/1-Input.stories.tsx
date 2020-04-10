@@ -1,8 +1,7 @@
-import { storiesOf } from "@storybook/react";
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-const InputType = styled.input`
+const Input = styled.input`
   border-radius: 10px;
   border-width: 0px;
   box-sizing: border-box;
@@ -29,7 +28,10 @@ const InputType = styled.input`
   }
 `;
 
-storiesOf("InputField")
-  .add("with themes", () => <InputType />)
-  .add("with placeholder", () => <InputType placeholder="Placeholder..." />);
+export default {
+  title: 'Input',
+  component: Input,
+};
 
+export const InputBase = () => <Input />;
+export const InputWithPlaceholder = () => <Input placeholder="a common placeholder..." />;

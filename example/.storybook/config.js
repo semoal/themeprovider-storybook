@@ -1,10 +1,6 @@
-import { addDecorator, configure, addParameters } from "@storybook/react";
+import React from 'react';
+import { addDecorator, addParameters } from "@storybook/react";
 import { withThemesProvider } from "../../src"
-
-function loadStories() {
-  const req = require.context("..", true, /\.stories\.jsx$/);
-  req.keys().forEach((filename) => req(filename));
-}
 
 const themes = [
   {
@@ -49,10 +45,14 @@ const themes = [
 
 addDecorator(withThemesProvider(themes));
 
+addDecorator((Story) => (
+  <div>
+    <Story />
+  </div>
+))
+
 addParameters({
   options: {
     brandTitle: 'Themeprovider-example'
   }
 })
-
-configure(loadStories, module);
