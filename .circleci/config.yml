@@ -40,7 +40,7 @@ jobs:
 
       - persist_to_workspace:
           root: ~/repo
-          paths: .
+          paths: [.]
   deploy:
     <<: *defaults
     steps:
@@ -65,6 +65,7 @@ workflows:
                 - master
                 - /rc-.*/
       - deploy:
+          type: approval
           requires:
             - test
           filters:
