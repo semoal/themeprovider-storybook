@@ -89,8 +89,7 @@ On config.js file of Storybook, just pass a `CustomThemeProvider`
 import { SomeCustomImplementationOfThemeProvider } from "src/app/CustomThemeProvider.jsx"
 
 addDecorator(
-  withThemesProvider(themes),
-  SomeCustomImplementationOfThemeProvider
+  withThemesProvider(themes, SomeCustomImplementationOfThemeProvider)
 );
 ```
 
