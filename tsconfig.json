@@ -10,8 +10,8 @@
     "declaration": true,
     "lib": ["es5", "es6", "dom"],
     "jsx": "react",
-    "types": ["node", "jest"],
     "declarationDir": "dist",
+    "types": [],
     "sourceRoot": "src",
     "rootDirs": ["src", "example"],
     "outDir": "dist"
