@@ -50,10 +50,10 @@ jobs:
           name: Publish package
           command: npm run release
       - gh-pages/deploy:
-          build-dir: example/build
+          build-dir: example/storybook-static
           requires:
-            - example/build
-          ssh-fingerprints: 'ff:22:gs:v6:gg:2g:22:7j:73:gf:ja:36:ff:y2:22:89'
+            - example/storybook-static
+          ssh-fingerprints: 'f4:72:2a:c0:b5:f3:bc:8c:41:94:dd:05:71:a1:57:a7'
 workflows:
   version: 2
   prepare-pr:
