@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 defaults: &defaults
   working_directory: ~/repo
@@ -49,6 +49,11 @@ jobs:
       - run:
           name: Publish package
           command: npm run release
+      - gh-pages/deploy:
+          build-dir: example/build
+          requires:
+            - example/build
+          ssh-fingerprints: 'ff:22:gs:v6:gg:2g:22:7j:73:gf:ja:36:ff:y2:22:89'
 workflows:
   version: 2
   prepare-pr:
@@ -75,3 +80,5 @@ workflows:
               only:
                 - master
                 - /rc-.*/
+orbs:
+  gh-pages: sugarshin/gh-pages@0.0.6

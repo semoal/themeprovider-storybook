@@ -1,18 +1,10 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "outDir": "build/lib",
-    "module": "commonjs",
-    "target": "es5",
+    "baseUrl": ".",
     "esModuleInterop": true,
-    "lib": ["es5", "es6", "es7", "es2017", "dom"],
-    "sourceMap": true,
-    "allowJs": false,
-    "jsx": "react",
-    "moduleResolution": "node",
-    "rootDirs": ["src", "stories"],
-    "baseUrl": "src"
+    "jsx": "preserve",
+    "skipLibCheck": true,
+    "strict": true
   },
-  "include": ["stories/**/*"],
-  "exclude": ["node_modules", "build", "scripts"]
-  }
+  "include": ["src/*", "main.ts"]
+}
