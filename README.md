@@ -65,7 +65,7 @@ export const decorators = [withThemesProvider(themes)];
 ### Examples
 
 | version | documentation |
-|----------|:-------------:|------:|
+|----------|:-------------:|
 | For Storybook v5.x.x  | [OLD readme](./v5_example/README.md) |
 | For Storybook v6.x.x  | [Current readme](./README.md) |
 
