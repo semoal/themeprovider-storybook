@@ -11,10 +11,6 @@ jobs:
     steps:
       - checkout
 
-      - restore_cache:
-          keys:
-          - v2-dependencies-{{ checksum "package.json" }}
-
       - run: npm install
 
       - run:
@@ -32,11 +28,6 @@ jobs:
       - run:
           name: Test package size
           command: npm run bundle-size
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v2-dependencies-{{ checksum "package.json" }}
 
       - persist_to_workspace:
           root: ~/repo
