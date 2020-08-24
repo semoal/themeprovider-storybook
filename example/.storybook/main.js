@@ -4,6 +4,7 @@ module.exports = {
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   addons: [
+    "@storybook/addon-docs",
     "themeprovider-storybook/register"
   ]
 }

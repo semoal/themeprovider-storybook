@@ -3,7 +3,6 @@ import styled from "styled-components";
 import SCModal, { ModalProvider } from "styled-react-modal";
 import SvgIcon from "./SvgIcon";
 
-// @ts-ignore
 const StyledModal = SCModal.styled`
   width: 30rem;
   border-radius: 10px;

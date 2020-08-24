@@ -12,7 +12,8 @@
     "build": "rimraf dist && tsc && cp ./package.json dist",
     "test": "jest",
     "bundle-size": "bundlesize",
-    "release": "semantic-release --debug"
+    "release": "semantic-release --debug",
+    "publish-storybook": "cd example && npm i --save themeprovider-storybook@latest && npm run build-storybook"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

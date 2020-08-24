@@ -16,5 +16,5 @@
     "rootDirs": ["src", "example"],
     "outDir": "dist"
   },
-  "exclude": ["node_modules", "example", "**/__tests__", "coverage", "dist"]
+  "exclude": ["node_modules", "v5_example", "example", "**/__tests__", "coverage", "dist"]
 }

@@ -27,13 +27,13 @@ export const ThemesProvider: React.FunctionComponent<ThemesProviderProps> = ({ s
       const channelUnmount = addons.getChannel();
       channelUnmount.removeListener("selectTheme", setTheme);
     };
-  }, [themes, children]);
+  }, []);
 
   if (CustomThemeProvider) {
-    if (!theme && story) return <CustomThemeProvider theme={themes.first()}>{story()}</CustomThemeProvider>;
-    return <CustomThemeProvider theme={theme}>{story()}</CustomThemeProvider>;
+    if (!theme && story) return <CustomThemeProvider theme={themes.first()}>{children}</CustomThemeProvider>;
+    return <CustomThemeProvider theme={theme}>{children}</CustomThemeProvider>;
   }
 
-  if (!theme && story) return <ThemeProvider theme={themes.first()}>{story()}</ThemeProvider>;
-  return <ThemeProvider theme={theme}>{story()}</ThemeProvider>;
+  if (!theme && story) return <ThemeProvider theme={themes.first()}>{children}</ThemeProvider>;
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
