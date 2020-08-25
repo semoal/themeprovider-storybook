@@ -1,1 +1,1 @@
-import "../../dist/register";
+import "themeprovider-storybook/register";

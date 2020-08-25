@@ -1,5 +1,5 @@
 import { addDecorator, addParameters } from "@storybook/react";
-import { withThemesProvider } from "../../src"
+import { withThemesProvider } from "themeprovider-storybook"
 
 const themes = [
   {
