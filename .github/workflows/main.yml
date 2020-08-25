@@ -10,13 +10,12 @@ on:
   pull_request:
   push:
     branches:
-      - '*'
+      - 'master'
 
 jobs:
   build_and_testing:
     runs-on: ubuntu-latest
     env:
-      CI: true
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -27,8 +26,10 @@ jobs:
       - name: Restore cache
         uses: actions/cache@v2
         with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - uses: actions/setup-node@v2-beta
         with:
@@ -38,8 +39,7 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: Install
-        run: |
-          npm ci
+        run: npm ci
 
       - name: Build & Testing
         run: |
