@@ -1,3 +1,19 @@
+# [1.6.0](https://github.com/semoal/themeprovider-storybook/compare/v1.5.1...v1.6.0) (2020-08-25)
+
+
+### Bug Fixes
+
+* some issue with ts ([e2f55ef](https://github.com/semoal/themeprovider-storybook/commit/e2f55eff4bb8f52b865f99af814415282ef1811e))
+
+
+### Features
+
+* added settings for disable modal functionality ([24c5196](https://github.com/semoal/themeprovider-storybook/commit/24c5196278cd851bef6c1c82d6286aa5e24ee10a))
+* deploy docs to github pages ([cfa0809](https://github.com/semoal/themeprovider-storybook/commit/cfa0809bea101bbfa95f1a5b1784ace7a8b2a46e))
+* deploy example of v6 to github ([d1e2dff](https://github.com/semoal/themeprovider-storybook/commit/d1e2dffef9b27e6106958e8dbe4425dceab76f97))
+* introduced compatibility with storybook 6 ([cd35960](https://github.com/semoal/themeprovider-storybook/commit/cd359609932e7f788d269ff8959b5072b621b927))
+* introduced compatibility with storybook 6 ([926205d](https://github.com/semoal/themeprovider-storybook/commit/926205d971dfd0fe354a3fa900aa173e38c4b1c6))
+
 ## [1.5.1](https://github.com/semoal/themeprovider-storybook/compare/v1.5.0...v1.5.1) (2020-04-10)
 
 
