@@ -19,6 +19,7 @@
     "prop-types": "15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "themeprovider-storybook": "^1.5.1",
     "typescript": "^3.9.2",
     "webpack": "^4.43.0"
   }
