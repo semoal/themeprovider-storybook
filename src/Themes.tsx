@@ -87,7 +87,7 @@ export const Themes: React.FunctionComponent<ThemeProps> = ({
   // When swiching to docs page we disable background color, because it's a more complex design
   // On a future release of storybook,
   // we hope they enable an internal naming(id, or theme) for setting only the background of each box.
-  const onHandleDocsPage = ({ viewMode }) => {
+  const onHandleDocsPage = ({ viewMode }: { viewMode: string }) => {
     if (viewMode === "docs") {
       const el: HTMLElement | null = document.getElementById("storybook-preview-iframe");
       if (el) el.style.background = "#FFFFFF";
