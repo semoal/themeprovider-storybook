@@ -33,7 +33,11 @@ jobs:
 
       - name: Install
         run: |
+          node -v
+          npm -v
           npm install
+          ./node_modules/typescript/bin/tsc -v
+          tsc -v
 
       - name: Build & Testing
         run: |
@@ -48,3 +52,4 @@ jobs:
           git config --global user.email "sergiomorenoalbert@gmail.com"
           git config --global user.name "CI"
           npm run release
+          
