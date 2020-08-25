@@ -6,15 +6,15 @@
 ![npm](https://img.shields.io/npm/dy/themeprovider-storybook.svg)
 ![GitHub](https://img.shields.io/github/license/semoal/themeprovider-storybook.svg)
 ![BundleSize](https://img.shields.io/bundlephobia/min/themeprovider-storybook)
+[![Greenkeeper badge](https://badges.greenkeeper.io/semoal/themeprovider-storybook.svg)](https://greenkeeper.io/)
 [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](semanticrelease)
 
 This addon helps you to display a Styled-Components ThemeProvider or a custom one in your [Storybook](https://storybook.js.org).
 
-- Works on Storybook 5.x.x and 6.x.x (latest release)
 - Switches background color.
 - Works on iframes or visual regression testing.
 - Allows passing a custom implementation of your own theme provider.
-- Displays a popup with all the current keys of the theme. [If you want, you can disable it](#disable-popup)
+- Displays a popup with all the current keys of the theme.
 - You can copy individually a value from the theme.
 
 ![Screenshot](https://i.imgur.com/y1Je5xR.gif)
@@ -28,21 +28,18 @@ yarn add themeprovider-storybook --dev
 npm install --save-dev themeprovider-storybook
 ```
 
-Add this line to your addons array inside `main.js` file (create this file inside your storybook config directory if needed).
+Add this line to your `addons.js` file (create this file inside your storybook config directory if needed).
 
 ```js
-module.exports = {
-  addons: [
-    "themeprovider-storybook/register"
-  ]
-}
+import 'themeprovider-storybook/register';
 ```
 
 ### Set options globally
 
-Import and use the `withThemesProvider` function in your `preview.js` file.
+Import and use the `addDecorator` in your `config.js` file.
 
 ```js
+import { addDecorator, configure } from '@storybook/react';
 import { withThemesProvider } from "themeprovider-storybook";
 
 // Options:
@@ -58,22 +55,9 @@ const themes = [
     ..., // Your theme keys (Check example if you need some help)
   }
 ]
+addDecorator(withThemesProvider(themes));
 
-export const decorators = [withThemesProvider(themes)];
-```
-
-### Examples
-
-| version | documentation |
-|----------|:-------------:|
-| For Storybook v5.x.x  | [OLD readme](./v5_example/README.md) |
-| For Storybook v6.x.x  | [Current readme](./README.md) |
-
-
-### Disable popup
-
-```jsx
-export const decorators = [withThemesProvider(themes, { disableThemePreview: false })];
+configure(() => require('./stories'), module);
 ```
 
 ### How to use your own implementation of ThemeProvider
@@ -105,7 +89,8 @@ On config.js file of Storybook, just pass a `CustomThemeProvider`
 import { SomeCustomImplementationOfThemeProvider } from "src/app/CustomThemeProvider.jsx"
 
 addDecorator(
-  withThemesProvider(themes, SomeCustomImplementationOfThemeProvider)
+  withThemesProvider(themes),
+  SomeCustomImplementationOfThemeProvider
 );
 ```
 

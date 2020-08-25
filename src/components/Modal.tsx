@@ -3,7 +3,6 @@ import styled from "styled-components";
 import SCModal, { ModalProvider } from "styled-react-modal";
 import SvgIcon from "./SvgIcon";
 
-// @ts-ignore
 const StyledModal = SCModal.styled`
   width: 30rem;
   border-radius: 10px;
@@ -13,7 +12,7 @@ const StyledModal = SCModal.styled`
   padding: 0;
   background-color: white;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-  opacity: ${(props) => props.opacity};
+  opacity: ${(props: any) => props.opacity};
   transition: opacity ease 500ms;
 `;
 
@@ -57,6 +56,8 @@ const Modal = React.memo(({ children, isOpen, toggleModal, headerTitle }: ModalP
       beforeClose={() => setOpacity(0)}
       onBackgroundClick={toggleModal}
       onEscapeKeydown={toggleModal}
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       opacity={opacity}
       backgroundProps={{ opacity }}
     >

@@ -1,20 +1,22 @@
 {
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__", "**/node_modules"],
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "sourceMap": true,
-    "noImplicitAny": false,
-    "esModuleInterop": true,
-    "emitDecoratorMetadata": true,
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "incremental": false,
+    "noImplicitAny": true,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "declaration": true,
-    "lib": ["es5", "es6", "dom"],
     "jsx": "react",
-    "types": ["node", "jest"],
-    "declarationDir": "dist",
-    "sourceRoot": "src",
-    "rootDirs": ["src", "example"],
-    "outDir": "dist"
+    "module": "commonjs",
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "target": "es5",
+    "types": ["jest"],
+    "lib": ["es2017", "dom"]
   },
-  "exclude": ["node_modules", "example", "**/__tests__", "coverage", "dist"]
 }

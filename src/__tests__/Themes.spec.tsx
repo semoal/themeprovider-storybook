@@ -12,6 +12,7 @@ describe("Themes spec", () => {
     };
 
     const component = mount(
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       <Themes channel={channel} active={true} theme={{ someTheme: {} }} />,
     );

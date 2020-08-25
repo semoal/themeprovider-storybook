@@ -11,7 +11,7 @@ export interface ThemesProviderProps {
 }
 
 export const BackgroundHelper: React.FunctionComponent<ThemesProviderProps> = ({ children, themes }) => {
-  const [theme, setTheme] = React.useState(null);
+  const [theme, setTheme] = React.useState<{ name: string} | null>(null);
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleModal = () => setIsOpen(!isOpen);
 

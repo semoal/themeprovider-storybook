@@ -1,0 +1,66 @@
+name: Main CI
+
+on:
+  workflow_dispatch:
+    inputs:
+        distTag:
+          description: 'Dist tag to publish'
+          required: true
+          default: 'latest'
+  pull_request:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build_and_testing:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      BUNDLESIZE_GITHUB_TOKEN: ${{ secrets.BUNDLESIZE_GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Restore cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - uses: actions/setup-node@v2-beta
+        with:
+          always-auth: true
+          node-version: 12
+      - name: Creates local .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - name: Install
+        run: npm ci
+
+      - name: Build & Testing
+        run: |
+          npm run lint
+          npm run build
+          npm run test
+          npm run bundle-size
+
+      - name: Release
+        if: ${{github.event.inputs.distTag == 'latest' || github.event.inputs.distTag == 'next'}}
+        run: |
+          git config --global user.email "sergiomorenoalbert@gmail.com"
+          git config --global user.name "CI"
+          npm run release && npm run publish-storybook
+
+      - name: Release Docs
+        if: ${{github.event.inputs.distTag == 'latest' || github.event.inputs.distTag == 'next'}}
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: example/storybook-static

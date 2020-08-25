@@ -1,29 +1,26 @@
 {
-  "name": "example-v2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@storybook/example-react-ts",
+  "version": "6.0.16",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
+    "build-storybook": "cross-env STORYBOOK_DISPLAY_WARNING=true DISPLAY_WARNING=true build-storybook",
+    "debug": "cross-env NODE_OPTIONS=--inspect-brk STORYBOOK_DISPLAY_WARNING=true DISPLAY_WARNING=true start-storybook -p 9011 --no-dll",
+    "storybook": "cross-env STORYBOOK_DISPLAY_WARNING=true DISPLAY_WARNING=true start-storybook -p 9011 --no-dll"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-docs": "^5.3.18",
-    "@storybook/addon-links": "^5.3.18",
-    "@storybook/addons": "^5.3.18",
-    "@storybook/preset-typescript": "^3.0.0",
-    "@storybook/react": "^5.3.18",
-    "babel-loader": "^8.1.0",
-    "fork-ts-checker-webpack-plugin": "^4.1.3",
-    "ts-loader": "^6.2.2",
-    "typescript": "^3.8.3"
+    "cross-env": "7.0.2"
+  },
+  "dependencies": {
+    "@storybook/addon-controls": "6.0.16",
+    "@storybook/addon-essentials": "6.0.16",
+    "@storybook/react": "6.0.16",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "prop-types": "15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "themeprovider-storybook": "^1.5.1",
+    "typescript": "^3.9.2",
+    "webpack": "^4.43.0"
   }
 }

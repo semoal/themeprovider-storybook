@@ -3,12 +3,14 @@ import * as React from "react";
 import { Button, Row } from "./components/Button";
 import SvgIcon from "./components/SvgIcon";
 import { Theme } from "./types/Theme";
-import { Channel } from '@storybook/channels';
-import { API } from '@storybook/api';
+// extrange issue on action file:
+// Argument of type '(api: import("/github/workspace/node_modules/@storybook/api/dist/index").API) => void' is not assignable to parameter of type '(api: import("/github/workspace/node_modules/@storybook/addons/node_modules/@storybook/api/dist/index").API) => void'.
+// import { Channel } from '@storybook/channels';
+// import { API } from '@storybook/api';
 
 export interface ThemeProps {
-  channel: Channel;
-  api: API;
+  channel: any;
+  api: any;
   active: boolean;
 }
 
@@ -52,7 +54,7 @@ export const Themes: React.FunctionComponent<ThemeProps> = ({
   const onReceiveThemes = (newThemes: Theme[]) => {
     // tslint:disable-next-line: no-shadowed-variable
     const themes = List(newThemes);
-    const themeSaved = JSON.parse(localStorage.getItem("themeprovider-storybook-selected-theme"));
+    const themeSaved = JSON.parse(localStorage.getItem("themeprovider-storybook-selected-theme") || "");
     setThemes(themes);
     if (themes.count() > 0) {
       // tslint:disable-next-line: no-shadowed-variable
@@ -60,7 +62,8 @@ export const Themes: React.FunctionComponent<ThemeProps> = ({
       setTheme(theme);
 
       if (theme.backgroundColor && window?.location?.search.includes("story")) {
-        document.getElementById("storybook-preview-iframe").style.background = theme.backgroundColor;
+        const el: HTMLElement | null = document.getElementById("storybook-preview-iframe");
+        if (el) el.style.background = theme.backgroundColor;
       }
 
       channel.emit("selectTheme", theme);
@@ -71,7 +74,8 @@ export const Themes: React.FunctionComponent<ThemeProps> = ({
     setTheme(customTheme);
 
     if (customTheme.backgroundColor && window?.location?.search.includes("story")) {
-      document.getElementById("storybook-preview-iframe").style.background = customTheme.backgroundColor;
+      const el: HTMLElement | null = document.getElementById("storybook-preview-iframe");
+      if (el) el.style.background = customTheme.backgroundColor;
       localStorage.setItem("themeprovider-storybook-selected-theme", JSON.stringify(customTheme.name));
     }
 
@@ -85,9 +89,10 @@ export const Themes: React.FunctionComponent<ThemeProps> = ({
   // When swiching to docs page we disable background color, because it's a more complex design
   // On a future release of storybook,
   // we hope they enable an internal naming(id, or theme) for setting only the background of each box.
-  const onHandleDocsPage = ({ viewMode }) => {
+  const onHandleDocsPage = ({ viewMode }: { viewMode: string }) => {
     if (viewMode === "docs") {
-      document.getElementById("storybook-preview-iframe").style.background = "#FFFFFF";
+      const el: HTMLElement | null = document.getElementById("storybook-preview-iframe");
+      if (el) el.style.background = "#FFFFFF";
     }
   }
 

@@ -2,6 +2,5 @@ node_modules
 dist
 coverage
 .cache
-package-lock.json
 .DS_Store
 pkg
