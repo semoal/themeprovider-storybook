@@ -3,12 +3,14 @@ import * as React from "react";
 import { Button, Row } from "./components/Button";
 import SvgIcon from "./components/SvgIcon";
 import { Theme } from "./types/Theme";
-import { Channel } from '@storybook/channels';
-import { API } from '@storybook/api';
+// extrange issue on action file:
+// Argument of type '(api: import("/github/workspace/node_modules/@storybook/api/dist/index").API) => void' is not assignable to parameter of type '(api: import("/github/workspace/node_modules/@storybook/addons/node_modules/@storybook/api/dist/index").API) => void'.
+// import { Channel } from '@storybook/channels';
+// import { API } from '@storybook/api';
 
 export interface ThemeProps {
-  channel: Channel;
-  api: API;
+  channel: any;
+  api: any;
   active: boolean;
 }
 

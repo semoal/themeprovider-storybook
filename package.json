@@ -9,7 +9,7 @@
     "storybook": "cd example && npm run storybook",
     "watch:tsc": "tsc -w",
     "dev": "concurrently --kill-others \"npm run watch:tsc\" \"npm run storybook\"",
-    "build": "rimraf dist && tsc -p ./tsconfig.json && cp ./package.json dist",
+    "build": "rimraf dist && tsc && cp ./package.json dist",
     "test": "jest",
     "bundle-size": "bundlesize",
     "release": "semantic-release --debug",

@@ -14,7 +14,7 @@ This addon helps you to display a Styled-Components ThemeProvider or a custom on
 - Switches background color.
 - Works on iframes or visual regression testing.
 - Allows passing a custom implementation of your own theme provider.
-- Displays a popup with all the current keys of the theme.
+- Displays a popup with all the current keys of the theme. [If you want, you can disable it](#disable-popup)
 - You can copy individually a value from the theme.
 
 ![Screenshot](https://i.imgur.com/y1Je5xR.gif)
@@ -68,6 +68,13 @@ export const decorators = [withThemesProvider(themes)];
 |----------|:-------------:|
 | For Storybook v5.x.x  | [OLD readme](./v5_example/README.md) |
 | For Storybook v6.x.x  | [Current readme](./README.md) |
+
+
+### Disable popup
+
+```jsx
+export const decorators = [withThemesProvider(themes, { disableThemePreview: false })];
+```
 
 ### How to use your own implementation of ThemeProvider
 

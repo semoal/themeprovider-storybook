@@ -9,13 +9,3 @@ configure({ adapter: new Adapter() });
 global.requestAnimationFrame = (callback: any) => {
   setTimeout(callback, 0);
 };
-
-const matchMedia = () => {
-  return {
-    addListener: null,
-    matches: false,
-    removeListener: null,
-  };
-};
-
-global.matchMedia = global.matchMedia || matchMedia;
