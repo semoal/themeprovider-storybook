@@ -16,8 +16,10 @@ jobs:
   build_and_testing:
     runs-on: ubuntu-latest
     env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      BUNDLESIZE_GITHUB_TOKEN: ${{ secrets.BUNDLESIZE_GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -53,12 +55,13 @@ jobs:
         run: |
           git config --global user.email "sergiomorenoalbert@gmail.com"
           git config --global user.name "CI"
-          npm run release && npm run publish-storybook
+          npm run release
 
       - name: Release Docs
         if: ${{github.event.inputs.distTag == 'latest' || github.event.inputs.distTag == 'next'}}
         uses: JamesIves/github-pages-deploy-action@3.5.9
+        run: npm run publish-storybook
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           BRANCH: gh-pages
           FOLDER: example/storybook-static
