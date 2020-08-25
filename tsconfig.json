@@ -7,14 +7,16 @@
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "strict": true,
     "declaration": true,
     "lib": ["es5", "es6", "dom"],
     "jsx": "react",
     "declarationDir": "dist",
     "types": ["jest"],
     "sourceRoot": "src",
-    "rootDirs": ["src", "example"],
+    "rootDirs": ["src"],
     "outDir": "dist"
   },
+  "include": ["src"],
   "exclude": ["node_modules", "v5_example", "example", "**/__tests__", "coverage", "dist"]
 }

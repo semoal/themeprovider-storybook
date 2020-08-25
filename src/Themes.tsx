@@ -52,7 +52,7 @@ export const Themes: React.FunctionComponent<ThemeProps> = ({
   const onReceiveThemes = (newThemes: Theme[]) => {
     // tslint:disable-next-line: no-shadowed-variable
     const themes = List(newThemes);
-    const themeSaved = JSON.parse(localStorage.getItem("themeprovider-storybook-selected-theme"));
+    const themeSaved = JSON.parse(localStorage.getItem("themeprovider-storybook-selected-theme") || "");
     setThemes(themes);
     if (themes.count() > 0) {
       // tslint:disable-next-line: no-shadowed-variable
@@ -60,7 +60,8 @@ export const Themes: React.FunctionComponent<ThemeProps> = ({
       setTheme(theme);
 
       if (theme.backgroundColor && window?.location?.search.includes("story")) {
-        document.getElementById("storybook-preview-iframe").style.background = theme.backgroundColor;
+        const el: HTMLElement | null = document.getElementById("storybook-preview-iframe");
+        if (el) el.style.background = theme.backgroundColor;
       }
 
       channel.emit("selectTheme", theme);
@@ -71,7 +72,8 @@ export const Themes: React.FunctionComponent<ThemeProps> = ({
     setTheme(customTheme);
 
     if (customTheme.backgroundColor && window?.location?.search.includes("story")) {
-      document.getElementById("storybook-preview-iframe").style.background = customTheme.backgroundColor;
+      const el: HTMLElement | null = document.getElementById("storybook-preview-iframe");
+      if (el) el.style.background = customTheme.backgroundColor;
       localStorage.setItem("themeprovider-storybook-selected-theme", JSON.stringify(customTheme.name));
     }
 
@@ -87,7 +89,8 @@ export const Themes: React.FunctionComponent<ThemeProps> = ({
   // we hope they enable an internal naming(id, or theme) for setting only the background of each box.
   const onHandleDocsPage = ({ viewMode }) => {
     if (viewMode === "docs") {
-      document.getElementById("storybook-preview-iframe").style.background = "#FFFFFF";
+      const el: HTMLElement | null = document.getElementById("storybook-preview-iframe");
+      if (el) el.style.background = "#FFFFFF";
     }
   }
 
