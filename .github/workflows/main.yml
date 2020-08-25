@@ -45,8 +45,7 @@ jobs:
 
       - name: Install
         run: |
-          npm whoami
-          npm ci
+          npm install
 
       - name: Build & Testing
         run: |
