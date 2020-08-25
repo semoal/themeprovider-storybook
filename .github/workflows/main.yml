@@ -55,12 +55,11 @@ jobs:
         run: |
           git config --global user.email "sergiomorenoalbert@gmail.com"
           git config --global user.name "CI"
-          npm run release
+          npm run release && npm run publish-storybook
 
       - name: Release Docs
         if: ${{github.event.inputs.distTag == 'latest' || github.event.inputs.distTag == 'next'}}
         uses: JamesIves/github-pages-deploy-action@3.5.9
-        run: npm run publish-storybook
         with:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           BRANCH: gh-pages
