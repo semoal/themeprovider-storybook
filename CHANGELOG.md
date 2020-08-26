@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/semoal/themeprovider-storybook/compare/v1.6.1...v1.6.2) (2020-08-26)
+
+
+### Bug Fixes
+
+* unexpected end of JSON input ([4782716](https://github.com/semoal/themeprovider-storybook/commit/478271653fe798d505a787df4640376e5371b805))
+
 ## [1.6.1](https://github.com/semoal/themeprovider-storybook/compare/v1.6.0...v1.6.1) (2020-08-26)
 
 
