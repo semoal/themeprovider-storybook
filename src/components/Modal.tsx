@@ -63,7 +63,7 @@ const Modal = React.memo(({ children, isOpen, toggleModal, headerTitle }: ModalP
     >
       <Header>
         {headerTitle}
-        <SvgIcon name="close" onClick={toggleModal} />
+        <SvgIcon style={{ cursor: "pointer", fill: "grey" }} name="close" onClick={toggleModal} />
       </Header>
       <Body>
         {children}

@@ -73,7 +73,7 @@ export const decorators = [withThemesProvider(themes)];
 ### Disable popup
 
 ```jsx
-export const decorators = [withThemesProvider(themes, { disableThemePreview: false })];
+export const decorators = [withThemesProvider(themes, { disableThemePreview: true })];
 ```
 
 ### How to use your own implementation of ThemeProvider

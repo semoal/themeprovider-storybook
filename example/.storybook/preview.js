@@ -43,4 +43,9 @@ const THEMES = [
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
 }
+
+// disabled preview
+// export const decorators = [withThemesProvider(THEMES, { disableThemePreview: true })];
+
+// with preview
 export const decorators = [withThemesProvider(THEMES)];

@@ -6,7 +6,7 @@ import { ModalProvider } from "./components/Modal";
 import { ThemesProvider } from "./ThemesProvider";
 import { Theme } from "./types/Theme";
 
-type ThemesProviderSettings = {
+export type ThemesProviderSettings = {
   disableThemePreview: boolean
 }
 
@@ -21,7 +21,7 @@ export const withThemesProvider = (
   ) => (story: any): JSX.Element => {
 
   return (
-    <ThemesProvider CustomThemeProvider={CustomThemeProvider} story={story} themes={List(themes)}>
+    <ThemesProvider settings={settings} CustomThemeProvider={CustomThemeProvider} story={story} themes={List(themes)}>
       {settings?.disableThemePreview ? (
         <BackgroundHelper themes={List(themes)}>{story()}</BackgroundHelper>
       ): (
