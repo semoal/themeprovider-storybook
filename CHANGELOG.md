@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/semoal/themeprovider-storybook/compare/v1.6.0...v1.6.1) (2020-08-26)
+
+
+### Bug Fixes
+
+* fixed disable param ([c101eb8](https://github.com/semoal/themeprovider-storybook/commit/c101eb84b9f36701ae4bbd4149240cb6b491ce5c))
+
 # [1.6.0](https://github.com/semoal/themeprovider-storybook/compare/v1.5.1...v1.6.0) (2020-08-25)
 
 
