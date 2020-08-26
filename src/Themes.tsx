@@ -58,7 +58,7 @@ export const Themes: React.FunctionComponent<ThemeProps> = ({
   const onReceiveThemes = (newThemes: Theme[]) => {
     // tslint:disable-next-line: no-shadowed-variable
     const themes = List(newThemes);
-    const themeSaved = JSON.parse(localStorage.getItem("themeprovider-storybook-selected-theme") || "");
+    const themeSaved = JSON.parse(localStorage.getItem("themeprovider-storybook-selected-theme") || null);
     setThemes(themes);
     if (themes.count() > 0) {
       // tslint:disable-next-line: no-shadowed-variable
