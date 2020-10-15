@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/semoal/themeprovider-storybook/compare/v1.6.2...v1.6.3) (2020-10-15)
+
+
+### Bug Fixes
+
+* publish readme to npm ([31fa6ab](https://github.com/semoal/themeprovider-storybook/commit/31fa6abc308b64934a7f95d24447a2315f4054b2))
+
 ## [1.6.2](https://github.com/semoal/themeprovider-storybook/compare/v1.6.1...v1.6.2) (2020-08-26)
 
 
