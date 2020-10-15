@@ -15,11 +15,6 @@
     "release": "semantic-release --debug",
     "publish-storybook": "cd example && npm i && npm i --save themeprovider-storybook@latest && npm run build-storybook"
   },
-  "files": [
-    "package.json",
-    "README.md",
-    "dist"
-  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
