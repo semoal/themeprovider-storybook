@@ -1,3 +1,10 @@
+## [1.6.4](https://github.com/semoal/themeprovider-storybook/compare/v1.6.3...v1.6.4) (2020-10-15)
+
+
+### Bug Fixes
+
+* fix corrupted 1.6.3 version ([4dfbc3c](https://github.com/semoal/themeprovider-storybook/commit/4dfbc3c240377aa6493ec5b4537337985825b4bb))
+
 ## [1.6.3](https://github.com/semoal/themeprovider-storybook/compare/v1.6.2...v1.6.3) (2020-10-15)
 
 
