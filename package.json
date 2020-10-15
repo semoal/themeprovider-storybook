@@ -9,12 +9,17 @@
     "storybook": "cd example && npm run storybook",
     "watch:tsc": "tsc -w",
     "dev": "concurrently --kill-others \"npm run watch:tsc\" \"npm run storybook\"",
-    "build": "rimraf dist && tsc && cp ./package.json dist",
+    "build": "rimraf dist && tsc && cp ./package.json README.md dist",
     "test": "jest",
     "bundle-size": "bundlesize",
     "release": "semantic-release --debug",
     "publish-storybook": "cd example && npm i && npm i --save themeprovider-storybook@latest && npm run build-storybook"
   },
+  "files": [
+    "package.json",
+    "README.md",
+    "dist"
+  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -89,6 +94,10 @@
   "keywords": [
     "storybook",
     "styled-components",
+    "emotion",
+    "themeprovider",
+    "themeprovider-storybook",
+    "theme-provider",
     "react",
     "typescript"
   ],
