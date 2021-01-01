@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/semoal/themeprovider-storybook/compare/v1.6.4...v1.7.0) (2021-01-01)
+
+
+### Features
+
+* removed & updated deps ([5e76669](https://github.com/semoal/themeprovider-storybook/commit/5e76669d054542de44b5529aa9611318e7a0ea84))
+
 ## [1.6.4](https://github.com/semoal/themeprovider-storybook/compare/v1.6.3...v1.6.4) (2020-10-15)
 
 
