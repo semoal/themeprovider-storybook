@@ -1,12 +1,11 @@
 import addons from "@storybook/addons";
-import { List } from "immutable";
 import * as React from "react";
 import { ThemeProvider } from "styled-components";
 import { Theme } from "./types/Theme";
 import { ThemesProviderSettings } from "./withThemesProvider";
 
 export interface ThemesProviderProps {
-  themes: List<Theme>;
+  themes: Array<Theme>;
   settings: ThemesProviderSettings;
   CustomThemeProvider?: React.ComponentType<{ theme: Theme }>;
   story?: any;
@@ -33,10 +32,10 @@ export const ThemesProvider: React.FunctionComponent<ThemesProviderProps> = ({ s
   }, []);
 
   if (CustomThemeProvider) {
-    if (!theme && story) return <CustomThemeProvider theme={themes.first()}>{children}</CustomThemeProvider>;
+    if (!theme && story) return <CustomThemeProvider theme={themes[0]}>{children}</CustomThemeProvider>;
     return <CustomThemeProvider theme={theme}>{children}</CustomThemeProvider>;
   }
 
-  if (!theme && story) return <ThemeProvider theme={themes.first()}>{children}</ThemeProvider>;
+  if (!theme && story) return <ThemeProvider theme={themes[0]}>{children}</ThemeProvider>;
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };

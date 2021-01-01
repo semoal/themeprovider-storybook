@@ -1,12 +1,11 @@
 import addons from "@storybook/addons";
-import { List} from "immutable";
 import * as React from "react";
 import ReactJson from "react-json-view";
 import { Modal } from "./components/Modal";
 import { Theme } from "./types/Theme";
 
 export interface ThemesProviderProps {
-  themes: List<Theme>;
+  themes: Array<Theme>;
   children: React.ReactChild;
 }
 

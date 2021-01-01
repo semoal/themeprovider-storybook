@@ -1,4 +1,3 @@
-import { List } from "immutable";
 import * as React from "react";
 
 import { BackgroundHelper } from "./Background";
@@ -21,12 +20,12 @@ export const withThemesProvider = (
   ) => (story: any): JSX.Element => {
 
   return (
-    <ThemesProvider settings={settings} CustomThemeProvider={CustomThemeProvider} story={story} themes={List(themes)}>
+    <ThemesProvider settings={settings} CustomThemeProvider={CustomThemeProvider} story={story} themes={themes}>
       {settings?.disableThemePreview ? (
-        <BackgroundHelper themes={List(themes)}>{story()}</BackgroundHelper>
+        <BackgroundHelper themes={themes}>{story()}</BackgroundHelper>
       ): (
         <ModalProvider>
-          <BackgroundHelper themes={List(themes)}>{story()}</BackgroundHelper>
+          <BackgroundHelper themes={themes}>{story()}</BackgroundHelper>
         </ModalProvider>
       )}
     </ThemesProvider>

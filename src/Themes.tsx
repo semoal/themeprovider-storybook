@@ -1,4 +1,3 @@
-import { List } from "immutable";
 import * as React from "react";
 import { Button, Row } from "./components/Button";
 import SvgIcon from "./components/SvgIcon";
@@ -20,7 +19,7 @@ interface ButtonProps {
   theme: Theme;
   onOpenModal: () => void;
   settings: ThemesProviderSettings;
-  themes: List<Theme>;
+  themes: Array<Theme>;
 }
 
 const BaseComponent: React.FunctionComponent<ButtonProps> = ({
@@ -42,8 +41,7 @@ const BaseComponent: React.FunctionComponent<ButtonProps> = ({
           <span>{th.name}</span>
           {!settings.disableThemePreview && <SvgIcon name="info" onClick={() => onOpenModal()} />}
         </Button>
-      ))
-      .toArray()}
+    ))}
   </Row>
 );
 
@@ -53,16 +51,16 @@ export const Themes: React.FunctionComponent<ThemeProps> = ({
 }) => {
   const [theme, setTheme] = React.useState(null);
   const [settings, setSettings] = React.useState<ThemesProviderSettings>({ disableThemePreview: false });
-  const [themes, setThemes] = React.useState(List());
+  const [themes, setThemes] = React.useState([]);
 
   const onReceiveThemes = (newThemes: Theme[]) => {
     // tslint:disable-next-line: no-shadowed-variable
-    const themes = List(newThemes);
+    const themes = [...newThemes];
     const themeSaved = JSON.parse(localStorage.getItem("themeprovider-storybook-selected-theme") || null);
     setThemes(themes);
-    if (themes.count() > 0) {
+    if (themes.length > 0) {
       // tslint:disable-next-line: no-shadowed-variable
-      const theme = themes.find((t) => t.name === themeSaved) || themes.first();
+      const theme = themes.find((t) => t.name === themeSaved) || themes[0];
       setTheme(theme);
 
       if (theme.backgroundColor && window?.location?.search.includes("story")) {
