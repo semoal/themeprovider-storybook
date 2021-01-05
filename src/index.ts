@@ -1,3 +1,3 @@
 export { Themes } from "./Themes";
 export { ThemesProvider } from "./ThemesProvider";
-export { withThemesProvider } from "./withThemesProvider";
+export { withThemesProvider, DEFAULT_SETTINGS } from "./withThemesProvider";
