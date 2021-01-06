@@ -102,10 +102,28 @@ export default function SomeCustomImplementationOfThemeProvider(props: Props) {
 
 On config.js file of Storybook, just pass a `CustomThemeProvider`
 ```jsx
+import { DEFAULT_SETTINGS } from "themeprovider-storybook"
 import { SomeCustomImplementationOfThemeProvider } from "src/app/CustomThemeProvider.jsx"
 
 addDecorator(
-  withThemesProvider(themes, SomeCustomImplementationOfThemeProvider)
+  withThemesProvider(
+    themes,
+    DEFAULT_SETTINGS,
+    SomeCustomImplementationOfThemeProvider
+  )
+);
+```
+
+also you can pass inside settings object the custom implementation of your theme provider.
+
+```jsx
+import { SomeCustomImplementationOfThemeProvider } from "src/app/CustomThemeProvider.jsx"
+
+addDecorator(
+  withThemesProvider(
+    themes,
+    { customThemeProvider: SomeCustomImplementationOfThemeProvider },
+  )
 );
 ```
 

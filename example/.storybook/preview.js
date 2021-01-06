@@ -1,3 +1,4 @@
+// import { ThemeProvider } from "styled-components";
 import { withThemesProvider } from "themeprovider-storybook"
 const THEMES = [
   {
@@ -44,8 +45,19 @@ export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
 }
 
-// disabled preview
+// Example with disabled preview
 // export const decorators = [withThemesProvider(THEMES, { disableThemePreview: true })];
 
 // with preview
-export const decorators = [withThemesProvider(THEMES)];
+export const decorators = [
+  withThemesProvider(THEMES, {
+    CustomThemeProvider: ThemeProvider
+  })
+];
+
+/**
+ * Example with custom provider
+ */
+// export const decorators = [withThemesProvider(THEMES, DEFAULT_SETTINGS, ThemeProvider)];
+// or
+// export const decorators = [withThemesProvider(THEMES, { CustomThemeProvider: ThemeProvider })];
