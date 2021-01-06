@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/semoal/themeprovider-storybook/compare/v1.7.0...v1.7.1) (2021-01-06)
+
+
+### Bug Fixes
+
+* Compatibility with older versions ([#45](https://github.com/semoal/themeprovider-storybook/issues/45)) ([28c294a](https://github.com/semoal/themeprovider-storybook/commit/28c294ad01aae5b735c778e203f407b61891cf9f))
+
 # [1.7.0](https://github.com/semoal/themeprovider-storybook/compare/v1.6.4...v1.7.0) (2021-01-01)
 
 
