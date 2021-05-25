@@ -12,6 +12,8 @@ const Row = styled.div`
   display: flex;
   height: auto;
   padding: 15px;
+  flex-wrap: wrap;
+  align-content: flex-start;
 `;
 
 const Button = styled.button<StyledButton>`
@@ -34,7 +36,7 @@ const Button = styled.button<StyledButton>`
   white-space: nowrap;
   user-select: none;
   opacity: 1;
-  margin: 0 1em 0 0;
+  margin: 0 1em 1em 0;
   max-height: 3em;
   outline: none;
   font-family: inherit;
