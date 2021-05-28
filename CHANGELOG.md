@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/semoal/themeprovider-storybook/compare/v1.7.1...v1.7.2) (2021-05-28)
+
+
+### Bug Fixes
+
+* allow theme buttons to wrap when many themes ([#48](https://github.com/semoal/themeprovider-storybook/issues/48)) ([5cd335b](https://github.com/semoal/themeprovider-storybook/commit/5cd335b1e039d5749117ef4070eb9adcb5c26b1c))
+
 ## [1.7.1](https://github.com/semoal/themeprovider-storybook/compare/v1.7.0...v1.7.1) (2021-01-06)
 
 
