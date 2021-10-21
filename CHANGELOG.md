@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/semoal/themeprovider-storybook/compare/v1.7.2...v1.8.0) (2021-10-21)
+
+
+### Features
+
+* **#49:** select themes through shareable param ([552324d](https://github.com/semoal/themeprovider-storybook/commit/552324dac0633ed70b10f5c3025990cf7bc22d9a)), closes [#49](https://github.com/semoal/themeprovider-storybook/issues/49)
+
 ## [1.7.2](https://github.com/semoal/themeprovider-storybook/compare/v1.7.1...v1.7.2) (2021-05-28)
 
 
