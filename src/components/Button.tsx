@@ -51,14 +51,13 @@ const Button = styled.button<StyledButton>`
     box-shadow: rgba(51, 51, 51, 0.5) 0 0 0 1px inset;
   }
 
-  ${({ isSelected }) => isSelected && css`
-    background: #1ea7fd;
-    color: #fcfcfc;
-    box-shadow: #2795ee 0 0 0 1px inset;
-  `}
+  ${({ isSelected }) =>
+    isSelected &&
+    css`
+      background: #1ea7fd;
+      color: #fcfcfc;
+      box-shadow: #2795ee 0 0 0 1px inset;
+    `}
 ` as React.FunctionComponent<StyledButton>;
 
-export {
-  Row,
-  Button,
-};
+export { Row, Button };

@@ -46,33 +46,34 @@ export interface ModalProps {
   toggleModal: (e?: any) => void;
 }
 
-const Modal = React.memo(({ children, isOpen, toggleModal, headerTitle }: ModalProps) => {
-  const [opacity, setOpacity] = React.useState(0);
+const Modal = React.memo(
+  ({ children, isOpen, toggleModal, headerTitle }: ModalProps) => {
+    const [opacity, setOpacity] = React.useState(0);
 
-  return (
-    <StyledModal
-      isOpen={isOpen}
-      afterOpen={() => setOpacity(1)}
-      beforeClose={() => setOpacity(0)}
-      onBackgroundClick={toggleModal}
-      onEscapeKeydown={toggleModal}
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      opacity={opacity}
-      backgroundProps={{ opacity }}
-    >
-      <Header>
-        {headerTitle}
-        <SvgIcon style={{ cursor: "pointer", fill: "grey" }} name="close" onClick={toggleModal} />
-      </Header>
-      <Body>
-        {children}
-      </Body>
-    </StyledModal>
-  );
-});
+    return (
+      <StyledModal
+        isOpen={isOpen}
+        afterOpen={() => setOpacity(1)}
+        beforeClose={() => setOpacity(0)}
+        onBackgroundClick={toggleModal}
+        onEscapeKeydown={toggleModal}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        opacity={opacity}
+        backgroundProps={{ opacity }}
+      >
+        <Header>
+          {headerTitle}
+          <SvgIcon
+            style={{ cursor: "pointer", fill: "grey" }}
+            name="close"
+            onClick={toggleModal}
+          />
+        </Header>
+        <Body>{children}</Body>
+      </StyledModal>
+    );
+  }
+);
 
-export {
-  Modal,
-  ModalProvider,
-};
+export { Modal, ModalProvider };

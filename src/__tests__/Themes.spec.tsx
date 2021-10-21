@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { mount } from "enzyme";
 import * as React from "react";
 import { spy } from "sinon";
 import { Themes } from "../Themes";
@@ -14,7 +14,7 @@ describe("Themes spec", () => {
     const component = mount(
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      <Themes channel={channel} active={true} theme={{ someTheme: {} }} />,
+      <Themes channel={channel} active={true} theme={{ someTheme: {} }} />
     );
 
     expect(component.debug()).toMatchSnapshot();

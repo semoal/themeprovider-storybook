@@ -6,40 +6,48 @@ import { isReactComponent } from "./react-is";
 import { ThemesProvider } from "./ThemesProvider";
 import { Theme } from "./types/Theme";
 
-export type CustomThemeProvider = React.ComponentType<{ theme: Theme, children: React.ReactNode }>
+export type CustomThemeProvider = React.ComponentType<{
+  theme: Theme;
+  children: React.ReactNode;
+}>;
 export type ThemesProviderSettings = {
-  disableThemePreview?: boolean
-  CustomThemeProvider?: CustomThemeProvider
-}
+  disableThemePreview?: boolean;
+  CustomThemeProvider?: CustomThemeProvider;
+};
 
 export const DEFAULT_SETTINGS: ThemesProviderSettings = {
-  disableThemePreview: false
-}
+  disableThemePreview: false,
+};
 
 export const withThemesProvider = (
   themes: Theme[],
   settings: ThemesProviderSettings = DEFAULT_SETTINGS,
-  CustomThemeProvider?: CustomThemeProvider,
-  ) => (story: any): JSX.Element => {
-
+  CustomThemeProvider?: CustomThemeProvider
+) => (story: any): JSX.Element => {
   // compatibility with breaking change introduced without being deployed as breaking change...
   if (settings !== null && isReactComponent(settings)) {
-    CustomThemeProvider = settings as CustomThemeProvider
+    CustomThemeProvider = settings as CustomThemeProvider;
   } else if (settings !== DEFAULT_SETTINGS) {
-    settings = { ...DEFAULT_SETTINGS, ...settings }
+    settings = { ...DEFAULT_SETTINGS, ...settings };
   }
 
-  if (settings.CustomThemeProvider) CustomThemeProvider = settings.CustomThemeProvider
+  if (settings.CustomThemeProvider)
+    CustomThemeProvider = settings.CustomThemeProvider;
 
   return (
-    <ThemesProvider settings={settings} CustomThemeProvider={CustomThemeProvider} story={story} themes={themes}>
+    <ThemesProvider
+      settings={settings}
+      CustomThemeProvider={CustomThemeProvider}
+      story={story}
+      themes={themes}
+    >
       {settings?.disableThemePreview ? (
         <BackgroundHelper themes={themes}>{story()}</BackgroundHelper>
-      ): (
+      ) : (
         <ModalProvider>
           <BackgroundHelper themes={themes}>{story()}</BackgroundHelper>
         </ModalProvider>
       )}
     </ThemesProvider>
-  )
+  );
 };

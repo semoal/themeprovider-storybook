@@ -9,8 +9,11 @@ export interface ThemesProviderProps {
   children: React.ReactChild;
 }
 
-export const BackgroundHelper: React.FunctionComponent<ThemesProviderProps> = ({ children, themes }) => {
-  const [theme, setTheme] = React.useState<{ name: string} | null>(null);
+export const BackgroundHelper: React.FunctionComponent<ThemesProviderProps> = ({
+  children,
+  themes,
+}) => {
+  const [theme, setTheme] = React.useState<{ name: string } | null>(null);
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleModal = () => setIsOpen(!isOpen);
 
@@ -33,14 +36,18 @@ export const BackgroundHelper: React.FunctionComponent<ThemesProviderProps> = ({
     };
   }, []);
 
-  return(
+  return (
     <>
       {theme && (
-        <Modal isOpen={isOpen} toggleModal={toggleModal} headerTitle={theme.name}>
+        <Modal
+          isOpen={isOpen}
+          toggleModal={toggleModal}
+          headerTitle={theme.name}
+        >
           <ReactJson src={theme} displayObjectSize={false} indentWidth={2} />
         </Modal>
       )}
       {children}
     </>
-  )
+  );
 };
