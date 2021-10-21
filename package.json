@@ -26,14 +26,16 @@
     }
   ],
   "dependencies": {
-    "react-json-view": "^1.19.1",
-    "styled-react-modal": "^2.0.1"
+    "react-json-view": "^1.21.3",
+    "styled-react-modal": "^2.0.1",
+    "global": "^4.4.0",
+    "qss": "^2.0.3"
   },
   "peerDependencies": {
     "@storybook/addons": "^5.x.x || ^6.x.x",
     "@storybook/react": "^5.x.x || ^6.x.x",
-    "styled-components": "^4.x.x || ^5.x.x",
-    "react": "^16.x || ^17.x"
+    "react": "^16.x || ^17.x",
+    "styled-components": "^4.x.x || ^5.x.x"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
@@ -68,10 +70,13 @@
     "eslint": "^7.7.0",
     "eslint-plugin-react": "^7.20.6",
     "fork-ts-checker-webpack-plugin": "^5.1.0",
+    "global": "^4.4.0",
     "husky": "^4.2.5",
     "jest": "^26.4.2",
+    "qss": "^2.0.3",
     "react": "^16.12.0",
     "react-dom": "^16.13.1",
+    "react-json-view": "^1.21.3",
     "react-scripts": "^3.4.3",
     "rimraf": "^3.0.2",
     "semantic-release": "^17.1.1",

@@ -50,9 +50,7 @@ export const parameters = {
 
 // with preview
 export const decorators = [
-  withThemesProvider(THEMES, {
-    CustomThemeProvider: ThemeProvider
-  })
+  withThemesProvider(THEMES)
 ];
 
 /**
